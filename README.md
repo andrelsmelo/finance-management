@@ -43,7 +43,9 @@ Prototipo abaixo:
 *Insira prototipo Canva aqui*
 
 A estrutura do DB foi definida da seguinte forma:
-![Diagrama sem nome drawio](https://user-images.githubusercontent.com/95425092/225045278-2887d50e-0ab3-4021-9cc7-27645a24cee4.png)
+
+![UML DB](https://user-images.githubusercontent.com/95425092/225045412-7d0b53ef-59d5-40ff-8ff1-ae8f3f373ed1.jpg)
+
 ## Como utilizar
 
 
