@@ -43,9 +43,7 @@ Prototipo abaixo:
 *Insira prototipo Canva aqui*
 
 A estrutura do DB foi definida da seguinte forma:
-
-![Diagrama sem nome](https://user-images.githubusercontent.com/95425092/225045123-f38e79d8-d25b-4685-bab8-28016210682a.jpg)
-
+![Diagrama sem nome drawio](https://user-images.githubusercontent.com/95425092/225045278-2887d50e-0ab3-4021-9cc7-27645a24cee4.png)
 ## Como utilizar
 
 
@@ -59,6 +57,7 @@ Instale as dependências necessárias.
   cd finance-management
   npm install
 ```
+
 Crie e configure o arquivo .env na pasta /api com as informações do DB conforme .env.example
 
 ```bash
