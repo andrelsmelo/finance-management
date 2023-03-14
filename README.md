@@ -63,14 +63,9 @@ Instale as dependências necessárias.
   npm install
 ```
 
-Crie e configure o arquivo .env na pasta /api com as informações do DB conforme .env.example
+Crie e configure o arquivo .env na pasta /api e /app com as informações conforme .env.example respectivo.
 
-```bash
-  cd api
-  touch .env
-```
-
-Rode as migrations e seeders.
+Rode as migrations e seeders na API.
 
 ```bash
   npm run migrate
