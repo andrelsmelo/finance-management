@@ -1,76 +1,87 @@
+# Sistema de Gerenciamento de Finanças
 
-# Coming soon ...
+Este é um projeto de sistema de gerenciamento de finanças desenvolvido com o objetivo de estudos. O sistema permite que o usuário registre suas transações financeiras, como receitas e despesas, e visualize informações úteis sobre suas finanças, como o saldo atual, histórico de transações e relatórios financeiros.
 
-Uma interface de gerenciamento de finanças, com categorias de gastos, visualizacao de relatorios e cadastro de usuarios.
+O sistema foi construído utilizando NodeJs + NextJs, e possui uma interface intuitiva e fácil de usar. Ele permite que o usuário crie uma conta e faça login para acessar suas informações financeiras em qualquer lugar, a qualquer momento.
 
-NodeJs -> Backend
-NextJs -> Frontend
-MySQL -> DB
+O objetivo principal deste projeto é fornecer uma plataforma para a prática de habilidades em desenvolvimento de software, bem como oferecer uma oportunidade para estudar conceitos relacionados à gestão financeira pessoal. O sistema não está sendo desenvolvido para uso comercial ou para fins de lucro.
+## Documentação
 
-Backend será uma API rest que podera ser utilizada futuramente em apps mobile
+Foi definido que o usuario contara com 3 agentes Cliente, Convidado e Admin.
 
-Frontend responsivo Desktop, Tablet e mobile
+Será de cada escopo do agente as seguintes funções:
 
-Banco de Dados com migrations e seeders para facil implantacao.
+**Convidado**
 
-## Brainstorming
-Agents
-
-Cliente
-- CRUD despesas/receitas
--Atualizar seu cadastro
--Baixar relatórios (PDF, CSV)
--Visualizar tela RESUMO
-
-Admin
-- CRUD Clientes
-- Cadastrar categorias de gastos
-- Atualizar formulario de login
-- Alterar tema do site(PLUS)
-
-Convidado
 - Ver a landing page
 - Se cadastrar (Login/Registrar)
 
-------------------------------------------------------------
-Paginas/Modals
+**Cliente**
 
-CRUD Despesas/Receitas
-CRUD Clientes
-CRUD Categorias
+- CRUD despesas/receitas
+- Atualizar seu cadastro
+- Baixar relatórios (PDF, CSV)
+- Visualizar tela de resumo
 
-Landing Page
-Resumo
-Admin Page
-Login/Registrar
+**Admin**
 
--------------------------------------------------------------
-Estruturação do DB
+- CRUD Clientes
+- Cadastrar novas categorias de gastos
 
-users
-id, login, senha, e-mail, createdAt, updatedAt, deletedAt
-1 | lucakahn | 123luca | luca@email.com |
+Também foi definido que o sistema terá as seguites telas/modals:
 
-clients
-id, user_id, name, gender, wage_date, wage_value, createdAt, updatedAt, deletedAt
-2 | 1 | Luca | M | 05 | 3400 | 
+- Tela de registro de Despesas/receitas
+- Tela de gerenciamento de Clientes
+- Tela de gerenciamento de categorias
+- Landing page
+- Tela de resumo
+- Tela de Admin
+- Tela de Login/Registrar
 
-registers
-id, client_id, register_date, value, category_id, revenue_type_id,  createdAt, updatedAt, deletedAt
-1 | 2 | 13/03/2023 | 250 | 3 | 2 |
+Prototipo abaixo:
 
-revenue_type
-id, text, createdAt, updatedAt, deletedAt
-1 | outcome |
-2 | income |
+*Insira prototipo Canva aqui*
 
-categories
-id, name, createdAt, updatedAt, deletedAt
-1 | grocerys |
-----------------------
-Para rodas as migrations, configure o env com suas informacoes de banco local e rode o comando abaixo
+A estrutura do DB foi definida da seguinte forma:
 
-npm run migrate
+*Insira estrutura UML do DB aqui*
+## Como utilizar
+
+
+Clonne o repositório para a sua máquina local com 
+```bash
+  git clone https://github.com/andrelsmelo/finance-management.git
+```
+Instale as dependências necessárias.
+
+```bash
+  cd finance-management
+  npm install
+```
+Crie e configure o arquivo .env na pasta /api com as informações do DB conforme .env.example
+
+```bash
+  cd api
+  touch .env
+```
+
+Rode as migrations e seeders.
+
+```bash
+  npm run migrate
+  npm run seeder
+```
+
+Inicie o servidor local.
+
+```bash
+  npm start
+```
+    ou
+```bash
+  npm run dev
+```
+    
 ## Autores
 
 - [ @andrelsmelo ](https://github.com/andrelsmelo)
