@@ -1,50 +1,66 @@
 const clientModel = require('../models/client');
 
 const findAll = async (req, res) => {
-
-    const clients = await clientModel.findAll();
-
-    return res.status(200).json(clients);
+    try {
+        const clients = await clientModel.findAll();
+        return res.status(200).json(clients);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json('Erro ao buscar clientes');
+    }
 };
 
 const findOrFail = async (req, res) => {
+    try {
+        const {id} = req.params;
+        const client = await clientModel.findOrFail(id);
 
-    const {id} = req.params;
+        if (client.length === 0) {
+            return res.status(404).json('Não existe esse cliente');
+        }
 
-    const client = await clientModel.findOrFail(id);
-
-    if (client.length === 0) {
-        return res.status(404).json('Não existe esse cliente');
+        return res.status(200).json(client);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json('Erro ao buscar cliente');
     }
-
-    return res.status(200).json(client);
 };
 
 const store = async (req, res) => {
-
-    const createdClient = await clientModel.store(req.body);
-
-    return res.status(200).json(createdClient);
+    try {
+        const createdClient = await clientModel.store(req.body);
+        return res.status(200).json(createdClient);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json('Erro ao criar cliente');
+    }
 };
 
 const update = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const updatedClient = req.body;
 
-    const { id } = req.params;
+        await clientModel.update(id, updatedClient);
 
-    const updatedClient = req.body;
-
-    await clientModel.update(id, updatedClient);
-
-    return res.status(204).json();
+        return res.status(204).json();
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json('Erro ao atualizar cliente');
+    }
 };
 
 const remove = async (req, res) => {
+    try {
+        const { id } = req.params;
 
-    const { id } = req.params;
+        await clientModel.remove(id);
 
-    await clientModel.remove(id);
-
-    return res.status(204).json();
+        return res.status(204).json();
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json('Erro ao remover cliente');
+    }
 };
 
 module.exports = {
