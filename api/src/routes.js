@@ -6,8 +6,8 @@ const userController = require('./controllers/userController');
 const clientMiddleware = require('./middlewares/clientMiddleware');
 const userMiddleware = require('./middlewares/userMiddleware');
 
-const categoryController = require('../controllers/categoryController');
-const categoryMiddleware = require('../middlewares/categoryMiddleware');
+const categoryController = require('./controllers/categoryController');
+const categoryMiddleware = require('./middlewares/categoryMiddleware');
 
 const router = express.Router();
 
