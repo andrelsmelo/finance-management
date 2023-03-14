@@ -79,10 +79,6 @@ Inicie o servidor local.
 ```bash
   npm start
 ```
-    ou
-```bash
-  npm run dev
-```
     
 ## Autores
 
