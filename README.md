@@ -57,6 +57,9 @@ Instale as dependências necessárias.
 
 ```bash
   cd finance-management
+  cd api
+  npm install
+  cd app
   npm install
 ```
 
