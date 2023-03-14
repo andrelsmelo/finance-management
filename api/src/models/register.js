@@ -33,10 +33,33 @@ const remove = async (id) => {
   return deletedRegister;
 };
 
+const findClientRegisters = async(client_id) => {
+  const query = ' SELECT * FROM register where client_id = ? and deletedAt IS NULL'
+  const [clientRegisters] = await connection.execute(query, [client_id])
+  return clientRegisters;
+}
+
+const findClientRegistersFiltered = async(client_id, start_date, end_date) => {
+  const start_date_string = new Date(start_date);
+  const end_date_string = new Date(new Date(end_date).getTime() + (24 * 60 * 60 * 1000));
+
+  console.log(start_date_string, end_date_string)
+
+  const query = `
+    SELECT * FROM register WHERE client_id = ? AND register_date BETWEEN ? AND ? AND deletedAt IS NULL
+  `;
+
+  const [clientRegistersFiltered] = await connection.execute(query, [client_id, start_date_string, end_date_string]);
+
+  return clientRegistersFiltered;
+}
+
 module.exports = {
   findAll,
   findOrFail,
   store,
   update,
-  remove
+  remove,
+  findClientRegisters,
+  findClientRegistersFiltered
 };

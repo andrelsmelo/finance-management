@@ -3,7 +3,8 @@ const Joi = require('joi');
 const clientSchema = Joi.object({
   name: Joi.string().required(),
   gender: Joi.string().valid('male', 'female', 'other').required(),
-  wage_date: Joi.date().required(),
+  user_id: Joi.number().required(),
+  wage_date: Joi.number().required(),
   wage_value: Joi.number().required()
 });
 

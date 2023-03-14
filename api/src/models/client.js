@@ -21,11 +21,11 @@ const findOrFail = async (id) => {
 
 const store = async (client) => {
 
-    const { name, gender, wage_date, wage_value } = client;
+    const { user_id, name, gender, wage_date, wage_value } = client;
 
     const query = 'INSERT INTO clients (user_id, name, gender, wage_date, wage_value) VALUES ( ?,?,?,?,? )';
 
-    const [createdClient] = await connection.execute(query, [name, gender, wage_date, wage_value]);
+    const [createdClient] = await connection.execute(query, [user_id, name, gender, wage_date, wage_value]);
 
     return { insertId: createdClient.insertId };
 

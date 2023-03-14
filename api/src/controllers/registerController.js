@@ -52,10 +52,38 @@ const remove = async (req, res) => {
     }
 };
 
+const findClientRegisters = async (req, res) => {
+    try {
+        const { client_id } = req.params;
+        const clientRegisters = await registerModel.findClientRegisters(client_id);
+
+        if (clientRegisters.length === 0) {
+            return res.status(404).json('Registro não encontrado');
+        }
+        return res.status(200).json(clientRegisters)
+    } catch (error) {
+        return res.status(500).json({ message: 'Erro ao buscar registro do cliente', error})
+    }
+}
+
+const findClientRegistersFiltered = async (req, res) => {
+    try {
+        const { client_id, start_date, end_date } = req.params;
+
+        console.log(req.params)
+        const clientRegistersFiltered = await registerModel.findClientRegistersFiltered(client_id, start_date, end_date);
+        return res.status(200).json(clientRegistersFiltered)
+    } catch (error) {
+        return res.status(500).json({ messatge: 'Erro ao aplicar filtro', error})
+    }
+}
+
 module.exports = {
     findAll,
     findOrFail,
     store,
     update,
-    remove
+    remove,
+    findClientRegisters,
+    findClientRegistersFiltered
 };
