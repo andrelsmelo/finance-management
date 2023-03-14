@@ -42,5 +42,6 @@ router.put('/register/:id', registerMiddleware.validateBody, registerController.
 router.delete('/register/:id', registerController.remove);
 
 router.get('/register/client/:client_id', registerController.findClientRegisters)
+router.get('/register/client/:client_id/:start_date/:end_date', registerController.findClientRegistersFiltered);
 
 module.exports = router;

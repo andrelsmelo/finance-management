@@ -66,11 +66,24 @@ const findClientRegisters = async (req, res) => {
     }
 }
 
+const findClientRegistersFiltered = async (req, res) => {
+    try {
+        const { client_id, start_date, end_date } = req.params;
+
+        console.log(req.params)
+        const clientRegistersFiltered = await registerModel.findClientRegistersFiltered(client_id, start_date, end_date);
+        return res.status(200).json(clientRegistersFiltered)
+    } catch (error) {
+        return res.status(500).json({ messatge: 'Erro ao aplicar filtro', error})
+    }
+}
+
 module.exports = {
     findAll,
     findOrFail,
     store,
     update,
     remove,
-    findClientRegisters
+    findClientRegisters,
+    findClientRegistersFiltered
 };
