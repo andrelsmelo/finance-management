@@ -1,13 +1,17 @@
 const express = require('express');
 
-const clientController = require('./controllers/clientController');
 const userController = require('./controllers/userController');
-
-const clientMiddleware = require('./middlewares/clientMiddleware');
-const userMiddleware = require('./middlewares/userMiddleware');
-
+const clientController = require('./controllers/clientController');
+const registerController = require('./controllers/registerController');
 const categoryController = require('./controllers/categoryController');
+
+
+
+const userMiddleware = require('./middlewares/userMiddleware');
+const clientMiddleware = require('./middlewares/clientMiddleware');
+const registerMiddleware = require('./middlewares/registerMiddleware');
 const categoryMiddleware = require('./middlewares/categoryMiddleware');
+
 
 const router = express.Router();
 
@@ -32,6 +36,12 @@ router.get('/category', categoryController.findAll);
 router.get('/category/:id', categoryController.findOrFail);
 router.post('/category', categoryMiddleware.validateBody, categoryController.store);
 router.put('/category/:id', categoryMiddleware.validateBody, categoryController.update);
-router.delete('/category/:id', categoryController.remove);
+router.delete('/category/:id', categoryController.remove)
+
+router.get('/register', registerController.findAll);
+router.get('/register/:id', registerController.findOrFail);
+router.post('/register', registerMiddleware.validateBody, registerController.store);
+router.put('/register/:id', registerMiddleware.validateBody, registerController.update);
+router.delete('/register/:id', registerController.remove);
 
 module.exports = router;
