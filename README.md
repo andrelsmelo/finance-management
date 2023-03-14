@@ -44,7 +44,8 @@ Prototipo abaixo:
 
 A estrutura do DB foi definida da seguinte forma:
 
-*Insira estrutura UML do DB aqui*
+![Diagrama sem nome](https://user-images.githubusercontent.com/95425092/225045123-f38e79d8-d25b-4685-bab8-28016210682a.jpg)
+
 ## Como utilizar
 
 
