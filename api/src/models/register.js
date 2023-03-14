@@ -43,8 +43,6 @@ const findClientRegistersFiltered = async(client_id, start_date, end_date) => {
   const start_date_string = new Date(start_date);
   const end_date_string = new Date(new Date(end_date).getTime() + (24 * 60 * 60 * 1000));
 
-  console.log(start_date_string, end_date_string)
-
   const query = `
     SELECT * FROM register WHERE client_id = ? AND register_date BETWEEN ? AND ? AND deletedAt IS NULL
   `;

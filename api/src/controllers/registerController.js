@@ -70,7 +70,6 @@ const findClientRegistersFiltered = async (req, res) => {
     try {
         const { client_id, start_date, end_date } = req.params;
 
-        console.log(req.params)
         const clientRegistersFiltered = await registerModel.findClientRegistersFiltered(client_id, start_date, end_date);
         return res.status(200).json(clientRegistersFiltered)
     } catch (error) {
