@@ -23,13 +23,11 @@ const store = async (client) => {
 
     const { name, gender, wage_date, wage_value } = client;
 
-    const dateUTC = new Date(Date.now());
+    const query = 'INSERT INTO clients (user_id, name, gender, wage_date, wage_value) VALUES ( ?,?,?,?,? )';
 
-    const query = 'INSERT INTO clients (user_id, name, gender, wage_date, wage_value, createdAt, updatedAt) VALUES ( ?,?,?,?,?,?,? )';
+    const [createdClient] = await connection.execute(query, [name, gender, wage_date, wage_value]);
 
-    const [createdClient] = await connection.execute(query, [name, gender, wage_date, wage_value, dateUTC, dateUTC]);
-
-    return { insertId: createdClient.insertId};
+    return { insertId: createdClient.insertId };
 
 };
 
@@ -37,11 +35,9 @@ const update = async (id, client) => {
 
     const { name, gender, wage_date, wage_value } = client;
 
-    const dateUTC = new Date(Date.now());
+    const query = 'UPDATE clients SET name = ?, gender = ?, wage_date = ?, wage_value = ? WHERE id = ?';
 
-    const query = 'UPDATE clients SET name = ?, gender = ?, wage_date = ?, wage_value = ? updatedAt = ? WHERE id = ?';
-
-    const [updatedClient] = await connection.execute(query, [name, gender, wage_date, wage_value, dateUTC, id]);
+    const [updatedClient] = await connection.execute(query, [name, gender, wage_date, wage_value, id]);
 
     return updatedClient;
 };
