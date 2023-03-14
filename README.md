@@ -67,7 +67,10 @@ id, text, createdAt, updatedAt, deletedAt
 categories
 id, name, createdAt, updatedAt, deletedAt
 1 | grocerys |
+----------------------
+Para rodas as migrations, configure o env com suas informacoes de banco local e rode o comando abaixo
 
+npm run migrate
 ## Autores
 
 - [ @andrelsmelo ](https://github.com/andrelsmelo)
