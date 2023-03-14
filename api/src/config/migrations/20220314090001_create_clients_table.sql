@@ -5,7 +5,7 @@ CREATE TABLE clients (
   user_id INT(11) NOT NULL,
   name VARCHAR(255) NOT NULL,
   gender ENUM('male', 'female', 'other') NOT NULL,
-  wage_date DATE NOT NULL,
+  wage_date INT NOT NULL,
   wage_value DECIMAL(10, 2) NOT NULL,
   createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

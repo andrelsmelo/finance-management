@@ -41,4 +41,6 @@ router.post('/register', registerMiddleware.validateBody, registerController.sto
 router.put('/register/:id', registerMiddleware.validateBody, registerController.update);
 router.delete('/register/:id', registerController.remove);
 
+router.get('/register/client/:client_id', registerController.findClientRegisters)
+
 module.exports = router;

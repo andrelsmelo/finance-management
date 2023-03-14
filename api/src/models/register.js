@@ -33,10 +33,16 @@ const remove = async (id) => {
   return deletedRegister;
 };
 
+const findClientRegisters = async(client_id) => {
+  const query = ' SELECT * FROM register where client_id = ? and deletedAt IS NULL'
+  const [clientRegisters] = await connection.execute(query, [client_id])
+  return clientRegisters;
+}
 module.exports = {
   findAll,
   findOrFail,
   store,
   update,
-  remove
+  remove,
+  findClientRegisters
 };
