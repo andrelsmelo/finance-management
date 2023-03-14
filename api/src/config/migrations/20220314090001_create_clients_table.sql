@@ -4,7 +4,7 @@ CREATE TABLE clients (
   id INT(11) NOT NULL AUTO_INCREMENT,
   user_id INT(11) NOT NULL,
   name VARCHAR(255) NOT NULL,
-  gender ENUM('male', 'female', 'other') NOT NULL,
+  gender ENUM('Male', 'Female', 'Other') NOT NULL,
   wage_date INT NOT NULL,
   wage_value DECIMAL(10, 2) NOT NULL,
   createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

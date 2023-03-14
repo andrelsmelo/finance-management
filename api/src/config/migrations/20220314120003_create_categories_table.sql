@@ -1,8 +1,10 @@
--- 20220314120003_create_revenue_types_table.sql
+-- 20220314120001_create_categories_table.sql
 
-CREATE TABLE revenue_types (
+CREATE TABLE categories (
   id INT(11) NOT NULL AUTO_INCREMENT,
-  type ENUM('income', 'outcome') NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  description TEXT,
+  revenue_type ENUM('Income', 'Outcome') NOT NULL,
   createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   deletedAt TIMESTAMP NULL DEFAULT NULL,
