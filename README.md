@@ -4,7 +4,7 @@
 Uma interface de gerenciamento de finanças, com categorias de gastos, visualizacao de relatorios e cadastro de usuarios.
 
 NodeJs -> Backend
-ReactJs -> Frontend
+NextJs -> Frontend
 MySQL -> DB
 
 Backend será uma API rest que podera ser utilizada futuramente em apps mobile
