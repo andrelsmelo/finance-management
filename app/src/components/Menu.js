@@ -12,7 +12,6 @@ export default function Menu() {
     { label: 'Download', href: '/download', variant: 'primary' },
     { label: 'Home', href: '/home', variant: 'primary' },
     { label: 'Login', href: '/login', variant: 'primary' },
-    { label: 'Profile', href: '/profile', variant: 'primary' },
     { label: 'Register', href: '/register', variant: 'primary' },
     { label: 'Resume', href: '/resume', variant: 'primary' },
     { label: 'Users', href: '/users', variant: 'primary' },

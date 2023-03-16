@@ -1,13 +1,16 @@
 
+import Link from 'next/link';
 import styles from '../styles/Card.module.css';
 
 export default function Card(props) {
 
-    const { name, gender, wage_date, wage_value } = props;
+    const { id, name, gender, wage_date, wage_value } = props;
     return (
             <div className={styles['card']}>
                 <div className={styles['card-header']}>
-                    <h2 className={styles['card-title']}>{name}</h2>
+                    <Link href={`/client/${id}`}>
+                        <h2 className={styles['card-title']}>{name}</h2>
+                    </Link>
                     <div className={styles['card-subtitle']}>{gender}</div>
                 </div>
                 <div className={styles['card-body']}>
