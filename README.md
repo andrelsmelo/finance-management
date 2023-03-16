@@ -11,32 +11,35 @@ Foram definidos três agentes: Cliente, Convidado e Admin.
 
 As seguintes funções estão disponíveis para cada agente:
 
-Convidado
+**Convidado**
 
-Ver a landing page
-Se cadastrar (Login/Registrar)
-Cliente
+- Ver a landing page
+- Se cadastrar (Login/Registrar)
 
-CRUD de despesas/receitas
-Atualizar seu cadastro
-Baixar relatórios (PDF, CSV)
-Visualizar tela de resumo
-Admin
+**Cliente**
 
-CRUD de clientes
-Cadastrar novas categorias de gastos
-As seguintes telas/modals estão disponíveis:
+- CRUD de despesas/receitas
+- Atualizar seu cadastro
+- Baixar relatórios (PDF, CSV)
+- Visualizar tela de resumo
 
-Tela de registro de despesas/receitas
-Tela de gerenciamento de clientes
-Tela de gerenciamento de categorias
-Landing page
-Tela de resumo
-Tela de Admin
-Tela de Login/Registrar
+**Admin**
+
+- CRUD de clientes
+- Cadastrar novas categorias de gastos
+- As seguintes telas/modals estão disponíveis:
+
+- Tela de registro de despesas/receitas
+- Tela de gerenciamento de clientes
+- Tela de gerenciamento de categorias
+- Landing page
+- Tela de resumo
+- Tela de Admin
+- Tela de Login/Registrar
+
 Protótipo abaixo:
 
-Insira protótipo do Canva aqui
+*Insira protótipo do Canva aqui*
 
 A estrutura do banco de dados foi definida da seguinte forma:
 
