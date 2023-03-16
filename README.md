@@ -44,7 +44,9 @@ Protótipo abaixo:
 
 A estrutura do banco de dados foi definida da seguinte forma:
 
-![UML DB](https://user-images.githubusercontent.com/95425092/225045412-7d0b53ef-59d5-40ff-8ff1-ae8f3f373ed1.jpg)
+![DB](https://user-images.githubusercontent.com/95425092/225722338-4d0cbb89-dcd9-4559-ae68-de5cf925000d.jpg)
+
+
 
 ## Como utilizar
 
