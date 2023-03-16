@@ -1,6 +1,6 @@
-import Button from "../components/Button";
+
 import Head from "next/head";
-import Link from "next/link";
+import Menu from "@/components/Menu";
 
 import api from '../service/api';
 import React, { useState, useEffect } from 'react';
@@ -25,36 +25,7 @@ export default function Clients() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <Link href="/admin">
-                    <Button text="Admin" variant="primary" />
-                </Link>
-                <Link href="/categories">
-                    <Button text="Categories" variant="primary" />
-                </Link>
-                <Link href="/clients">
-                    <Button text="Clients" variant="primaryOutlined" />
-                </Link>
-                <Link href="/download">
-                    <Button text="Download" variant="primary" />
-                </Link>
-                <Link href="/home">
-                    <Button text="Home" variant="primary" />
-                </Link>
-                <Link href="/login">
-                    <Button text="Login" variant="primary" />
-                </Link>
-                <Link href="/profile">
-                    <Button text="Profile" variant="primary" />
-                </Link>
-                <Link href="/register">
-                    <Button text="Register" variant="primary" />
-                </Link>
-                <Link href="/resume">
-                    <Button text="Resume" variant="primary" />
-                </Link>
-                <Link href="/users">
-                    <Button text="Users" variant="primary" />
-                </Link>
+                <Menu/>
                 <section>
                     <div>
                         {clients && 

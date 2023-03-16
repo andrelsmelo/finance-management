@@ -55,8 +55,8 @@ const ButtonStyled = styled.button`
   }
 `;
 
-const Button = ({ text, variant }) => {
-  return <ButtonStyled variant={variant}>{text}</ButtonStyled>;
+const Button = ({ text, variant, onClick}) => {
+  return <ButtonStyled variant={variant} onClick={onClick}>{text}</ButtonStyled>;
 };
 
 export default Button;

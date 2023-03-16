@@ -2,6 +2,7 @@
 import Button from "../components/Button";
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
+import Menu from "./Menu";
 
 export default function Header() {
 
