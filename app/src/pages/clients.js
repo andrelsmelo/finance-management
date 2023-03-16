@@ -2,8 +2,18 @@ import Button from "../components/Button";
 import Head from "next/head";
 import Link from "next/link";
 
+import api from '../service/api';
+import React, { useState, useEffect } from 'react';
 export default function Clients() {
 
+    const [clients, setClients] = useState('');
+
+    useEffect(() => {
+      api.get('clients').then(res => {
+        setClients(res.data);
+      })
+    }, []);
+    
     return (
         <div>
             <Head>
@@ -45,7 +55,35 @@ export default function Clients() {
                 <Link href="/users">
                     <Button text="Users" variant="primary" />
                 </Link>
+                <section>
+                    <div>
+                        {clients && 
+                            clients.map((client) =>
+                                <>
+                                    <div>
+                                        {client.id}
+                                    </div>
+                                    <div>
+                                        {client.user_id}
+                                    </div>
+                                    <div>
+                                        {client.name}
+                                    </div>
+                                    <div>
+                                        {client.gender}
+                                    </div>
+                                    <div>
+                                        {client.wage_date}
+                                    </div>
+                                    <div>
+                                        {client.wage_value}
+                                    </div>
+                                </>
+                            )}
+                    </div>
+                </section>
             </main>
+            
         </div>
     )
 }
