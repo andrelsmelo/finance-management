@@ -11,7 +11,7 @@
     "seeder": "node src/config/seeder.js",
     "start-pm2": "pm2 start npm --name \"api\" -- start",
     "stop-pm2": "pm2 stop api",
-    "restart-pm2": "pm2 restart api",
+    "restart-pm2": "pm2 restart api"
   },
   "author": "",
   "license": "ISC",
