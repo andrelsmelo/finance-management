@@ -1,8 +1,6 @@
 
 import Head from "next/head";
 import Menu from "@/components/Menu";
-import styles from '../styles/Home.module.css';
-
 import api from '../service/api';
 import React, { useState, useEffect } from 'react';
 import Card from "@/components/Card";
@@ -30,7 +28,7 @@ export default function Clients() {
                 <Menu />
                     <section>
                         {clients && clients.map((client) =>
-                            <Card name={client.name} gender={client.gender} wage_date={client.wage_date} wage_value={client.wage_value}/>
+                            <Card id={client.id} name={client.name} gender={client.gender} wage_date={client.wage_date} wage_value={client.wage_value}/>
                         )}
                     </section>
             </main>
