@@ -44,4 +44,14 @@ router.delete('/register/:id', registerController.remove);
 router.get('/register/client/:client_id', registerController.findClientRegisters)
 router.get('/register/client/:client_id/:start_date/:end_date', registerController.findClientRegistersFiltered);
 
+router.get('/very-secret-stuff', (req, res) => {
+    res.redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+  });
+router.get('/the-big-secret', (req, res) => {
+    res.redirect('https://www.youtube.com/watch?v=Rvw6gMfs0yk&ab_channel=TheRanger');
+});
+router.get('/passwords', (req, res) => {
+    res.redirect('https://www.youtube.com/watch?v=h7T9WipuASA');
+});
+  
 module.exports = router;
