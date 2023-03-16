@@ -1,28 +1,44 @@
 import styled, { css } from 'styled-components';
 
 const ButtonStyles = {
-    whiteFilled: css`
+    primary: css`
       background-color: var(--primary);
       color: white;
     `,
-    blackFilled: css`
+    secondary: css`
       background-color: var(--secondary);
-      color: var(--black);
+      color: black;
     `,
-    outlined: css`
+    primaryOutlined: css`
       background-color: transparent;
       color: var(--primary);
       border: 2px solid var(--primary);
     `,
-    outlinedSecondary: css`
+    secondaryOutlined: css`
       background-color: transparent;
       color: var(--secondary);
       border: 2px solid var(--secondary);
     `,
-    plain: css`
+    primaryTransparent: css`
       background-color: transparent;
       color: var(--primary);
-    `
+    `,
+    secondaryTransparennt: css`
+    background-color: transparent;
+    color: var(--primary);
+    `,
+    success: css`
+      background-color: #28a745;
+      color: #fff;
+    `,
+    danger: css`
+      background-color: #dc3545;
+      color: #fff;
+    `,
+    info: css`
+      background-color: #aed6f1;
+      color: #fff;
+    `,
 };
 
 const ButtonStyled = styled.button`
@@ -31,7 +47,12 @@ const ButtonStyled = styled.button`
   border-radius: 4px;
   border: none;
   cursor: pointer;
+  margin: 10px 2px;
   ${({ variant }) => ButtonStyles[variant]}
+
+  &:hover {
+    transform: scale(1.1)
+  }
 `;
 
 const Button = ({ text, variant }) => {
