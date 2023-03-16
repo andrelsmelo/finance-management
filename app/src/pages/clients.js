@@ -1,6 +1,7 @@
 
 import Head from "next/head";
 import Menu from "@/components/Menu";
+import styles from '../styles/Home.module.css';
 
 import api from '../service/api';
 import React, { useState, useEffect } from 'react';
@@ -9,11 +10,11 @@ export default function Clients() {
     const [clients, setClients] = useState('');
 
     useEffect(() => {
-      api.get('clients').then(res => {
-        setClients(res.data);
-      })
+        api.get('clients').then(res => {
+            setClients(res.data);
+        })
     }, []);
-    
+
     return (
         <div>
             <Head>
@@ -25,36 +26,29 @@ export default function Clients() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <Menu/>
-                <section>
-                    <div>
-                        {clients && 
-                            clients.map((client) =>
-                                <>
-                                    <div>
-                                        {client.id}
+                <Menu />
+                    <section className={styles['grid-cards']}>
+                        {clients && clients.map((client) =>
+                            <div className={styles['card']}>
+                                <div className={styles['card-header']}>
+                                    <h2 className={styles['card-title']}>{client.name}</h2>
+                                    <div className={styles['card-subtitle']}>{client.gender}</div>
+                                </div>
+                                <div className={styles['card-body']}>
+                                    <div className={styles['card-info']}>
+                                        <div className={styles['card-info-label']}>Data de pagamento:</div>
+                                        <div className={styles['card-info-value']}>{client.wage_date}</div>
                                     </div>
-                                    <div>
-                                        {client.user_id}
+                                    <div className={styles['card-info']}>
+                                        <div className={styles['card-info-label']}>Valor do pagamento:</div>
+                                        <div className={styles['card-info-value']}>R$ {client.wage_value}</div>
                                     </div>
-                                    <div>
-                                        {client.name}
-                                    </div>
-                                    <div>
-                                        {client.gender}
-                                    </div>
-                                    <div>
-                                        {client.wage_date}
-                                    </div>
-                                    <div>
-                                        {client.wage_value}
-                                    </div>
-                                </>
-                            )}
-                    </div>
-                </section>
+                                </div>
+                            </div>
+                        )}
+                    </section>
             </main>
-            
+
         </div>
     )
 }
