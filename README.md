@@ -27,7 +27,8 @@ As seguintes funções estão disponíveis para cada agente:
 
 - CRUD de clientes
 - Cadastrar novas categorias de gastos
-- As seguintes telas/modals estão disponíveis:
+
+As seguintes telas/modals estão disponíveis:
 
 - Tela de registro de despesas/receitas
 - Tela de gerenciamento de clientes
