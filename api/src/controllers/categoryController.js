@@ -3,10 +3,10 @@ const categoryModel = require('../models/category');
 const findAll = async (req, res) => {
   try {
     const categories = await categoryModel.findAll();
-    res.status(200).json(categories);
+    return res.status(200).json(categories);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Erro ao buscar categorias' });
+    return res.status(500).json({ error: 'Erro ao buscar categorias' });
   }
 };
 
@@ -22,7 +22,7 @@ const findOrFail = async (req, res) => {
     return res.status(200).json(category);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Erro ao buscar categoria' });
+    return res.status(500).json({ error: 'Erro ao buscar categoria' });
   }
 };
 
@@ -32,7 +32,7 @@ const store = async (req, res) => {
     return res.status(201).json(createdCategory);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Erro ao criar categoria' });
+    return res.status(500).json({ error: 'Erro ao criar categoria' });
   }
 };
 
@@ -44,7 +44,7 @@ const update = async (req, res) => {
     return res.status(204).json();
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Erro ao atualizar categoria' });
+    return res.status(500).json({ error: 'Erro ao atualizar categoria' });
   }
 };
 
@@ -55,7 +55,7 @@ const remove = async (req, res) => {
     return res.status(204).json();
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Erro ao remover categoria' });
+    return res.status(500).json({ error: 'Erro ao remover categoria' });
   }
 };
 
