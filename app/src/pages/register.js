@@ -1,7 +1,6 @@
 
 import Head from "next/head";
-import '../styles/Home.module.css';
-import Menu from "@/components/Menu";
+import styles from '../styles/Register.module.css';
 
 export default function Register() {
 
@@ -15,8 +14,91 @@ export default function Register() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main>
-                <Menu/>
+            <main className={styles['register-main']}>
+                <section className={styles['register-history']}>
+                    <div className={styles['register-history-header']}>
+                        <div className={styles['register-title']}>
+                            HISTORICO
+                        </div>
+                        <div className={styles['register-history-filter']}>
+                            FILTRO
+                        </div>
+                    </div>
+                    <div className={styles['register-table']}>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>id</th>
+                                    <th>register_date</th>
+                                    <th>value</th>
+                                    <th>category</th>
+                                    <th>revenue_type</th>
+                                    <th>actions</th>
+                                </tr>
+                                <tr>
+                                    <td>122</td>
+                                    <td>24/03/2023</td>
+                                    <td>R$ 1100</td>
+                                    <td>Fundos Imobiliários</td>
+                                    <td>Income</td>
+                                    <td>
+                                        <button>A</button>
+                                        <button>B</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section className={styles['register-sidebar']}>
+                    <div className={styles['register-container']}>
+                        <div className={styles['register-input-selections']}>
+                            <label htmlFor="fname">Valor:</label>
+                            <input type="text" id="fname" name="fname" />
+                            <label htmlFor="lname">Data:</label>
+                            <input type="date" id="lname" name="lname" />
+                            <label htmlFor="cars">Categoria:</label>
+                            <select name="cars" id="cars">
+                                <option value="volvo">Option A</option>
+                                <option value="saab">Option B</option>
+                                <option value="mercedes">Option C</option>
+                                <option value="audi">Option D</option>
+                            </select>
+                            <button className={styles['btn-confirm-register']}>A</button>
+                        </div>
+                        <div className={styles['register-selected-inputs']}>
+                            <span>
+                                R$ 1230,00 | 17/03/2023 | Investimentos
+                            </span>
+                            <span>
+                                R$ 1230,00 | 17/03/2023 | Investimentos
+                            </span>
+                            <span>
+                                R$ 1230,00 | 17/03/2023 | Investimentos
+                            </span>
+                        </div>
+                    </div>
+                    <div className={styles['register-buttons']}>
+                        <button>Cancelar</button>
+                        <button>Salvar</button>
+                    </div>
+                    <div className={styles['download-container']}>
+                        <div className={styles['download-input-selections']}>
+                            <label htmlFor="lname">Data Inicial:</label>
+                            <input type="date" id="lname" name="lname" />
+                            <label htmlFor="lname">Data Final:</label>
+                            <input type="date" id="lname" name="lname" />
+                        </div>
+                        <div className={styles['download-icons']}>
+                            <button>
+                                PDF
+                            </button>
+                            <button>
+                                CSV
+                            </button>
+                        </div>
+                    </div>
+                </section>
             </main>
         </div>
     )

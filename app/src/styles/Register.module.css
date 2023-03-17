@@ -1,0 +1,161 @@
+
+.register-main {
+    display: flex;
+    margin-top: 25px;
+}
+
+.register-history {
+    width: 60%;
+    margin: 40px 80px 0 80px;
+    background-color: white;
+}
+
+.register-history-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 45px;
+}
+
+.register-table {
+    margin: 0 45px 20px;
+    max-height: 50%;
+    overflow-y: scroll;
+}
+
+.register-table table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.register-table th {
+    background-color: #ddd;
+    position: sticky;
+    top: 0;
+}
+
+.register-table td,
+.register-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.register-sidebar {
+    width: 40%;
+    margin: 40px 80px 0 80px;
+}
+
+.register-container {
+    margin: 10px 20px 0;
+    background-color: white;
+}
+
+.register-container input {
+    margin: 0 5px;
+}
+
+.register-download {
+    margin: 20px;
+}
+
+.register-input-selections {
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-selected-inputs {
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+}
+
+.register-selected-inputs span {
+    margin: 5px;
+    font-size: 12px;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.register-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.register-buttons button {
+    margin: 0 45px;
+    width: 100px;
+    background-color: #4CAF50;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 0 0 10px 10px;
+}
+
+.register-buttons button:first-child {
+    margin: 0 45px;
+    width: 100px;
+    background-color: rgb(243, 243, 110);
+    border: none;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 0 0 10px 10px;
+}
+
+.btn-confirm-register {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50px;
+    font-size: 12pt;
+    cursor: pointer;
+    color: white;
+    background: #99B83C;
+    margin-left: 10px;
+}
+
+.download-container {
+    margin: 10px 20px 0;
+    background-color: white;
+}
+
+.download-input-selections {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 20px;
+}
+
+.download-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.download-icons button{
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50px;
+    font-size: 12pt;
+    cursor: pointer;
+    color: white;
+    background: #99B83C;
+    margin: 0 20px 10px;
+}
+
+.download-icons button:first-child {
+    background: #b83c3c;
+}
