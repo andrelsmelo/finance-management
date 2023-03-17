@@ -6,16 +6,20 @@ import Head from "next/head";
 
 export default function Client() {
     const [client, setClient] = useState(null);
+    const [registers, setRegisters] = useState(null);
     const router = useRouter();
     const { id } = router.query;
 
     useEffect(() => {
         if (id) {
-           api.get(`client/${id}`).then(res => {
-              setClient(res.data);
-           });
+            api.get(`client/${id}`).then(res => {
+                setClient(res.data);
+            });
+            api.get(`register/client/${id}`).then(res => {
+                setRegisters(res.data);
+            });
         }
-     }, [id]);
+    }, [id]);
 
     return (
         <div>
@@ -27,7 +31,41 @@ export default function Client() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <h1>{client && client[0].name}</h1>
+            {client &&
+                <>
+                    <h1>{client[0].id}</h1>
+                    <h1>{client[0].name.split(" ")[0]}</h1>
+                    <h1>{client[0].name}</h1>
+                    <h1>{client[0].gender[0]}</h1>
+                    <h1>{client[0].wage_date}</h1>
+                    <h1>{client[0].wage_value}</h1>
+                </>
+            }
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>client_id</th>
+                    <th>register_date</th>
+                    <th>value</th>
+                    <th>category_id</th>
+                    <th>revenue_type</th>
+                    <th>actions</th>
+                </tr>
+                {registers &&
+                    registers.map((register) =>
+                        <>
+                            <tr>
+                                <td>{register.id}</td>
+                                <td>{register.client_id}</td>
+                                <td>{register.register_date}</td>
+                                <td>{register.value}</td>
+                                <td>{register.category_id}</td>
+                                <td>revenue_type</td>
+                                <td>actions</td>
+                            </tr>
+                        </>
+                    )}
+            </table>
         </div>
     );
 }
