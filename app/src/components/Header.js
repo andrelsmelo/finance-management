@@ -16,12 +16,14 @@ export default function Header() {
                     <h1 className={'color-primary'}>FINANCE <span className='color-secondary'>MANAGEMENT</span></h1>
                 </div>
             </Link>
+            <Menu />
             <div className={styles['header-buttons']}>
                 <Button text="About Us" variant="primaryTransparent" />
                 <Link href="/login">
                     <Button text="Login" variant="primaryOutlined" />
                 </Link>
             </div>
+            
         </header>
     )
 }

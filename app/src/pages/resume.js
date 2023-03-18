@@ -16,7 +16,6 @@ export default function Resume() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <Menu/>
             </main>
         </div>
     )

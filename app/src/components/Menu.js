@@ -6,15 +6,11 @@ export default function Menu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { label: 'Admin', href: '/admin', variant: 'primary' },
-    { label: 'Categories', href: '/categories', variant: 'primary' },
-    { label: 'Clients', href: '/clients', variant: 'primary' },
-    { label: 'Download', href: '/download', variant: 'primary' },
-    { label: 'Home', href: '/home', variant: 'primary' },
+    { label: 'Home', href: '/', variant: 'primary' },
     { label: 'Login', href: '/login', variant: 'primary' },
-    { label: 'Register', href: '/register', variant: 'primary' },
+    { label: 'Clients', href: '/clients', variant: 'primary' },
     { label: 'Resume', href: '/resume', variant: 'primary' },
-    { label: 'Users', href: '/users', variant: 'primary' },
+    { label: 'Register', href: '/register', variant: 'primary' }
   ];
 
   function toggleMenu() {
@@ -23,7 +19,7 @@ export default function Menu() {
 
   return (
     <div className="relative">
-      <Button text="Menu" variant="secondary" onClick={toggleMenu} />
+      <Button text="Menu" variant="secondary" onClick={toggleMenu} style={{ display: isMenuOpen ? "none" : "block" }} />
       {isMenuOpen && (
         <ul
           onClick={toggleMenu}

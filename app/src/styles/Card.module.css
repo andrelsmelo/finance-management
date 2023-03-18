@@ -1,57 +1,88 @@
 .card {
-    background-color: white);
-    border-radius: 8px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 24px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 10px;
+  flex-basis: 25%;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-subtitle {
+  font-size: 18px;
+  color: gray;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-info-label {
+  font-size: 18px;
+  color: gray;
+}
+
+.card-info-value {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.category-container  {
+  display: flex;
+  justify-content: end;
+}
+
+.category-container button  {
+  margin: 5px 45px;
+  width: 100px;
+  background-color: var(--secondary);
+  border: none;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.card-main {
     display: flex;
+    margin-top: 25px;
     flex-direction: column;
-    gap: 16px;
-    margin: 10px;
-  }
-  
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-  }
-  
-  .card-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .card-subtitle {
-    font-size: 18px;
-    color: gray;
-  }
-  
-  .card-body {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .card-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .card-info-label {
-    font-size: 18px;
-    color: gray;
-  }
-  
-  .card-info-value {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .grid-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 20px;
-  }
+}
