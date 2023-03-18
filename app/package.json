@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start-pm2": "pm2 start npm --name \"app\" -- start",
+    "stop-pm2": "pm2 stop app",
+    "restart-pm2": "pm2 restart app"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
