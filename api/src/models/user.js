@@ -13,6 +13,13 @@ const findOrFail = async (id) => {
     return user;
 };
 
+const findByEmail = async (email) => {
+    const query = 'SELECT * FROM users WHERE email = ? and deletedAt IS NULL';
+    const [user] = await connection.execute(query, [email]);
+    return user;
+  };
+  
+
 const store = async (user) => {
     const { login, password, email } = user;
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -39,6 +46,7 @@ const remove = async (id) => {
 module.exports = {
     findAll,
     findOrFail,
+    findByEmail,
     store,
     update,
     remove

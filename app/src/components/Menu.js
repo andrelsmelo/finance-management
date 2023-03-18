@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Button from './Button';
+import { useAuth } from '../hooks/AuthContext';
 
 export default function Menu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const { isLoggedIn, logout } = useAuth();
 
   const menuItems = [
     { label: 'Home', href: '/', variant: 'primary' },
@@ -19,7 +22,10 @@ export default function Menu() {
 
   return (
     <div className="relative">
-      <Button text="Menu" variant="secondary" onClick={toggleMenu} style={{ display: isMenuOpen ? "none" : "block" }} />
+      {isLoggedIn && (
+        <Button text="Menu" variant="secondary" onClick={toggleMenu} style={{ display: isMenuOpen ? "none" : "block" }} />
+      )}
+
       {isMenuOpen && (
         <ul
           onClick={toggleMenu}

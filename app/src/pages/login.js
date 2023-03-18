@@ -3,23 +3,54 @@ import '../styles/Home.module.css';
 import React, { useState } from "react";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useAuth } from '../hooks/AuthContext';
+import { useRouter } from 'next/router';
+
+import api from '../service/api';
+
 
 function LoginForm() {
+    const { login } = useAuth();
+    const router = useRouter();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        const credentials = {
+            email: email,
+            password: password
+          };
+
+        api.post('login', credentials).then(res => {
+            const {token} = res.data;
+
+            console.log(token)
+            login(token);
+            router.push('/resume');
+        }).catch(error => {
+            console.error(error);
+          });
+    }
+
+
     return (
-        <form id="login_form" className="active">
+        <form onSubmit={handleSubmit} id="login_form" className="active">
             <span className="form_title">Login</span>
             <div className="form_input">
                 <i className='bx bxs-user icon'></i>
-                <input type="text" placeholder="Username" />
+                <input type="email" placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)}/>
             </div>
             <div className="form_input">
                 <i className='bx bx-key icon' ></i>
-                <input type="password" placeholder="Password" />
+                <input type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}/>
             </div>
             <a className="form_link" href="#">Forgot the password?</a>
-            <button className="form_button" type="button">
+            <button className="form_button" type="button" onClick={handleSubmit}>
                 <FontAwesomeIcon icon={faChevronRight} />
-            </button>        </form>
+            </button>
+        </form>
     );
 }
 

@@ -4,16 +4,24 @@ const userController = require('./controllers/userController');
 const clientController = require('./controllers/clientController');
 const registerController = require('./controllers/registerController');
 const categoryController = require('./controllers/categoryController');
+const authController = require ('./controllers/authController');
 
 const userMiddleware = require('./middlewares/userMiddleware');
 const clientMiddleware = require('./middlewares/clientMiddleware');
 const registerMiddleware = require('./middlewares/registerMiddleware');
 const categoryMiddleware = require('./middlewares/categoryMiddleware');
+const authMiddleware = require('./middlewares/authMiddleware');
+
 
 const router = express.Router();
 
-router.get('/is-alive', (req,res) => {
-    res.status(200).json({message: 'Backend is alive'});
+
+router.get('/', (req, res) => {
+    res.status(200).json({ message: 'Bem vindo a API!' });
+});
+
+router.get('/is-alive', (req, res) => {
+    res.status(200).json({ message: 'Backend is alive' });
 });
 
 
@@ -44,14 +52,16 @@ router.delete('/register/:id', registerController.remove);
 router.get('/register/client/:client_id', registerController.findClientRegisters)
 router.get('/register/client/:client_id/:start_date/:end_date', registerController.findClientRegistersFiltered);
 
+router.post('/login', authController.login);
+
 router.get('/very-secret-stuff', (req, res) => {
     res.redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
-  });
+});
 router.get('/the-big-secret', (req, res) => {
     res.redirect('https://www.youtube.com/watch?v=Rvw6gMfs0yk&ab_channel=TheRanger');
 });
 router.get('/passwords', (req, res) => {
     res.redirect('https://www.youtube.com/watch?v=h7T9WipuASA');
 });
-  
+
 module.exports = router;
