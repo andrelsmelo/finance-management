@@ -22,10 +22,10 @@ export default function Menu() {
 
   return (
     <div className="relative">
-      {isLoggedIn && (
+{/*       {isLoggedIn && (
         <Button text="Menu" variant="secondary" onClick={toggleMenu} style={{ display: isMenuOpen ? "none" : "block" }} />
-      )}
-
+      )} */}
+        <Button text="Menu" variant="secondary" onClick={toggleMenu} style={{ display: isMenuOpen ? "none" : "block" }} />
       {isMenuOpen && (
         <ul
           onClick={toggleMenu}

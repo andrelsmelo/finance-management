@@ -1,0 +1,23 @@
+
+.category-content {
+    background-color: #fefefe;
+    display: flex;
+  }
+
+.category-content table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.category-content th {
+    background-color:  var(--primary);
+    position: sticky;
+    top: 0;
+}
+
+.category-content td,
+.category-content th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}

@@ -33,13 +33,25 @@ const remove = async (id) => {
   return deletedRegister;
 };
 
-const findClientRegisters = async(client_id) => {
-  const query = ' SELECT * FROM registers where client_id = ? and deletedAt IS NULL'
-  const [clientRegisters] = await connection.execute(query, [client_id])
+const findClientRegisters = async (client_id) => {
+  const query = `
+    SELECT
+      r.id,
+      r.register_date,
+      r.value,
+      c.name,
+      c.revenue_type
+    FROM finance.registers AS r
+    JOIN finance.categories AS c
+      ON r.category_id = c.id
+    WHERE r.client_id = 1
+      AND r.deletedAt IS NULL`;
+  const [clientRegisters] = await connection.execute(query, [client_id]);
   return clientRegisters;
-}
+};
 
-const findClientRegistersFiltered = async(client_id, start_date, end_date) => {
+
+const findClientRegistersFiltered = async (client_id, start_date, end_date) => {
   const start_date_string = new Date(start_date);
   const end_date_string = new Date(new Date(end_date).getTime() + (24 * 60 * 60 * 1000));
 

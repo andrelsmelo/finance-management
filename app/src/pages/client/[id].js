@@ -3,12 +3,16 @@ import React, { useState, useEffect } from "react";
 import api from '../../service/api';
 import { useRouter } from 'next/router';
 import Head from "next/head";
+import TableComponent from "@/components/Table";
+import ClientCard from "@/components/ClientCard";
 
 export default function Client() {
     const [client, setClient] = useState(null);
     const [registers, setRegisters] = useState(null);
     const router = useRouter();
     const { id } = router.query;
+
+    const headers = ['id', 'Data de Registro', 'Valor', 'Categoria', 'Tipo', 'Ações'];
 
     useEffect(() => {
         if (id) {
@@ -32,40 +36,14 @@ export default function Client() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             {client &&
-                <>
-                    <h1>{client[0].id}</h1>
-                    <h1>{client[0].name.split(" ")[0]}</h1>
-                    <h1>{client[0].name}</h1>
-                    <h1>{client[0].gender[0]}</h1>
-                    <h1>{client[0].wage_date}</h1>
-                    <h1>{client[0].wage_value}</h1>
-                </>
+                <ClientCard id={client[0].id} name={client[0].name} gender={client[0].gender} wage_date={client[0].wage_date} wage_value={client[0].wage_value} />
             }
-            <table>
-                <tr>
-                    <th>id</th>
-                    <th>client_id</th>
-                    <th>register_date</th>
-                    <th>value</th>
-                    <th>category_id</th>
-                    <th>revenue_type</th>
-                    <th>actions</th>
-                </tr>
-                {registers &&
-                    registers.map((register) =>
-                        <>
-                            <tr>
-                                <td>{register.id}</td>
-                                <td>{register.client_id}</td>
-                                <td>{register.register_date}</td>
-                                <td>{register.value}</td>
-                                <td>{register.category_id}</td>
-                                <td>revenue_type</td>
-                                <td>actions</td>
-                            </tr>
-                        </>
-                    )}
-            </table>
+            <TableComponent
+                headers={headers}
+                datas={registers}
+                actions={true}
+            >
+            </TableComponent>
         </div>
     );
 }
