@@ -10,7 +10,7 @@
 }
 
 .category-content th {
-    background-color:  var(--primary);
+    background-color:  var(--secondary-light);
     position: sticky;
     top: 0;
 }

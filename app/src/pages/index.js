@@ -1,6 +1,8 @@
-
 import Head from "next/head";
 import Menu from "@/components/Menu";
+import Link from "next/link";
+import styles from '../styles/Home.module.css';
+import Button from "@/components/Button";
 
 export default function Home() {
 
@@ -14,8 +16,45 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className={styles["landing-container"]}>
+        <div className={styles["titles-container"]}>
+          <div className={styles["main-title"]}>
+            Com a MoneyMatters Management, você pode rastrear facilmente seus gastos e receber insights valiosos sobre seus hábitos financeiros.
+          </div>
+          <div className={styles["main-images"]}>
+            <div className={styles["image"]}>
+              <img src="/mock1.jpeg" alt="oldman" />
+            </div>
+            <div className={styles["image"]}>
+              <img src="/mock2.jpeg" alt="oldman" />
+            </div>
+            <div className={styles["image"]}>
+              <img src="/mock3.jpeg" alt="oldman" />
+            </div>
+          </div>
+          <div className={styles["login-container"]}>
+            <div className={styles["email-input"]}>
+              <input type="email" placeholder="Email" />
+            </div>
+            <div className={styles["login-register-container"]}>
+              <button className={styles["register-btn"]}>
+                Cadastre-se
+              </button>
+              <div className={styles["already-register"]}>
+                <p>
+                  Gerencie suas finanças de forma fácil e eficaz
+                </p>
+                <span>
+                  Já tem cadastro? <Link href="/login"><u>Login</u></Link>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
+      <div className={styles['bola']}>
+           <img src="/histerica.png" alt="histeric"/>
+      </div>
     </div>
   )
 }

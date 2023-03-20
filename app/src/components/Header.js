@@ -15,7 +15,7 @@ export default function Header() {
                 textDecoration: 'none'
             }}>
                 <div className={styles['header-title']}>
-                    <h1 className={'color-primary'}>FINANCE <span className='color-secondary'>MANAGEMENT</span></h1>
+                    <h1 className={'color-primary'}>MONEY <span className='color-secondary'>MATTERS</span></h1>
                 </div>
             </Link>
             <Menu />
