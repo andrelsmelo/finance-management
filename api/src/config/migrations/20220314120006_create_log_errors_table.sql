@@ -1,0 +1,12 @@
+-- 20220314120006_create_log_errors_table
+
+CREATE TABLE logs (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  type ENUM('info', 'warn', 'error') NOT NULL,
+  method VARCHAR(255) NOT NULL,
+  params TEXT,
+  error TEXT,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+PRIMARY KEY (id)
+);
