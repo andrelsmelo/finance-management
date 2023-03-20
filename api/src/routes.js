@@ -54,6 +54,7 @@ router.get('/register/client/:client_id/:start_date/:end_date', registerControll
 
 router.post('/login', authController.login);
 
+
 router.get('/very-secret-stuff', (req, res) => {
     res.redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
 });

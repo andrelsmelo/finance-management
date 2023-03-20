@@ -1,11 +1,11 @@
 const userModel = require('../models/user');
 var jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const { findClientByUserid } = require('../services/loginService');
 
 
   async function login(req, res) {
 
-    console.log(req.body)
     try {
       const { email, password } = req.body;
 
@@ -18,7 +18,6 @@ const bcrypt = require('bcrypt');
         return res.status(401).json({ message: 'Usuario nao encontrado.' });
       }
 
-      console.log(password, user.password)
       const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
       if (!isPasswordCorrect) {
@@ -27,7 +26,9 @@ const bcrypt = require('bcrypt');
 
       const token = jwt.sign({ userId: user.id }, secret);
 
-      return res.status(200).json({ token });
+      const [client] = await findClientByUserid(user.id);
+
+      return res.status(200).json({ token: token, client_id: client.id });
     } catch (err) {
       return res.status(500).json({ message: err.message });
     }

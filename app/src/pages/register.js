@@ -1,8 +1,25 @@
 
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import styles from '../styles/Register.module.css';
+import api from '../service/api';
+import Cookies from 'universal-cookie';
+import TableComponent from "@/components/Table";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
 
 export default function Register() {
+
+    const cookies = new Cookies();
+    const [registers, setRegisters] = useState('');
+    const headers = ['id', 'Data de Registro', 'Valor', 'Categoria', 'Tipo', 'Ações'];
+    const id = cookies.get('client_id');
+
+    useEffect(() => {
+        api.get(`register/client/${id}`).then(res => {
+            setRegisters(res.data)
+        });
+    }, []);
 
     return (
         <div>
@@ -21,33 +38,16 @@ export default function Register() {
                             HISTORICO
                         </div>
                         <div className={styles['register-history-filter']}>
-                            FILTRO
+                                <FontAwesomeIcon icon={faFilter}/>
                         </div>
                     </div>
                     <div className={styles['register-table']}>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>id</th>
-                                    <th>register_date</th>
-                                    <th>value</th>
-                                    <th>category</th>
-                                    <th>revenue_type</th>
-                                    <th>actions</th>
-                                </tr>
-                                <tr>
-                                    <td>122</td>
-                                    <td>24/03/2023</td>
-                                    <td>R$ 1100</td>
-                                    <td>Fundos Imobiliários</td>
-                                    <td>Income</td>
-                                    <td>
-                                        <button>A</button>
-                                        <button>B</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <TableComponent
+                            headers={headers}
+                            datas={registers}
+                            actions={true}
+                        >
+                        </TableComponent>
                     </div>
                 </section>
                 <section className={styles['register-sidebar']}>

@@ -1,7 +1,26 @@
+import TableComponent from "@/components/Table";
 import Head from "next/head";
 import styles from '../styles/Resume.module.css';
+import Cookies from 'universal-cookie';
+import { useEffect, useState } from "react";
+import api from '../service/api';
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
 
 export default function Resume() {
+    const cookies = new Cookies();
+    const [registers, setRegisters] = useState('');
+
+    const headers = ['id', 'Data de Registro', 'Valor', 'Categoria', 'Tipo', 'Ações'];
+
+    const id = cookies.get('client_id');
+
+    useEffect(() => {
+        api.get(`register/client/${id}`).then(res => {
+            setRegisters(res.data)
+        });
+    }, []);
 
     return (
         <div>
@@ -20,22 +39,30 @@ export default function Resume() {
                             Resume
                         </div>
                         <div className={styles["resume-history"]}>
-                            <ul>
-                                <li>AAA</li>
-                                <li>BBB</li>
-                                <li>CCC</li>
-                                <li>DDD</li>
-                            </ul>
+                            {id &&
+                                <TableComponent
+                                    headers={headers}
+                                    datas={registers}
+                                    actions={true}
+                                >
+                                </TableComponent>
+                            }
                         </div>
                     </div>
                     <div className={styles["register-container"]}>
-                        <button className={styles["new-register-btn"]}>
-                            Registrar
-                        </button>
+                        <Link href="/register">
+                            <button className={styles["new-register-btn"]}>
+                                Registrar
+                            </button>
+                        </Link>
                         <div className={styles["resume-graphics"]}>
+                            <div className={styles["graphic-filter"]}>
+                                <FontAwesomeIcon icon={faFilter}/>
+                            </div>
+                            <div className={styles["graphic"]}>
+                            </div>
                         </div>
                     </div>
-
                 </div>
                 <div className={styles["second-row"]}>
                     <div className={styles["revenue-type-graphics"]}>

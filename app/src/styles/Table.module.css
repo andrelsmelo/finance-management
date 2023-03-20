@@ -1,23 +1,27 @@
-
-.category-content {
-    background-color: #fefefe;
+.table-container {
     display: flex;
-  }
-
-.category-content table {
-    border-collapse: collapse;
+    justify-content: center;
     width: 100%;
 }
 
-.category-content th {
+.table-content {
+    border-collapse: collapse;    
+}
+.table-header {
     background-color:  var(--secondary-light);
     position: sticky;
     top: 0;
 }
 
-.category-content td,
-.category-content th {
+.table-body {
     border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+    padding: 0.2rem;
+    text-align: center;
+    background-color: white;
+}
+
+.table-body td{
+    border: 1px solid #ddd;
+    padding: 0.4rem;
+    text-align: center;
 }

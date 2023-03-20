@@ -63,10 +63,24 @@ const remove = async (req, res) => {
     }
 };
 
+const findClientByUserid = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const client = await clientModel.findClientByUserid(id);
+
+        return res.status(200).json(client);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json('Erro ao buscar cliente');
+    }
+}
+
 module.exports = {
     findAll,
     findOrFail,
     store,
     update,
-    remove
+    remove,
+    findClientByUserid
 };

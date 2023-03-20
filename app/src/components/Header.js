@@ -1,6 +1,6 @@
 import Button from "../components/Button";
 import Link from 'next/link';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Header.module.css';
 import Menu from "./Menu";
 import { useAuth } from "@/hooks/AuthContext";
 
@@ -8,28 +8,31 @@ export default function Header() {
 
     const { isLoggedIn, logout } = useAuth();
 
-    return(
-        <header>
-            <Link href="/"
-            style={{
-                textDecoration: 'none'
-            }}>
-                <div className={styles['header-title']}>
+    return (
+        <header className={styles['header-container']}>
+            <div className={styles['header-title']}>
+                <Link href="/"
+                    style={{
+                        textDecoration: 'none'
+                    }}>
                     <h1 className={'color-primary'}>MONEY <span className='color-secondary'>MATTERS</span></h1>
-                </div>
-            </Link>
-            <Menu />
-            <div className={styles['header-buttons']}>
-                <Button text="About Us" variant="primaryTransparent" />
-                {isLoggedIn ? (
-                    <Button text="Logout" variant="primaryOutlined" onClick={() => logout()} />
-                ) : (
-                    <Link href="/login">
-                        <Button text="Login" variant="primaryOutlined" />
-                    </Link>
-                )}
+                </Link>
             </div>
-            
+            <Menu />
+            <div>
+                <Button text="About Us" variant="primaryTransparent" />
+                {isLoggedIn ?
+                    (   <Link href="/">
+                            <Button text="Logout" variant="primaryOutlined" onClick={() => logout()} />
+                    </Link>
+                    ) : (
+                        <Link href="/login">
+                            <Button text="Login" variant="primaryOutlined" />
+                        </Link>
+                    )
+                }
+
+            </div>
         </header>
     )
 }

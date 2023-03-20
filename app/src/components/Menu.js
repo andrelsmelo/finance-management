@@ -22,18 +22,21 @@ export default function Menu() {
 
   return (
     <div className="relative">
-{/*       {isLoggedIn && (
+      {/*       {isLoggedIn && (
         <Button text="Menu" variant="secondary" onClick={toggleMenu} style={{ display: isMenuOpen ? "none" : "block" }} />
       )} */}
+      <div>
         <Button text="Menu" variant="secondary" onClick={toggleMenu} style={{ display: isMenuOpen ? "none" : "block" }} />
+      </div>
       {isMenuOpen && (
         <ul
           onClick={toggleMenu}
         >
           {menuItems.map((item) => (
-                <Link href={item.href}>
-                    <Button text={item.label} variant={item.variant} />
-                </Link>
+              <Link href={item.href}>
+                  <Button text={item.label} variant={item.variant} />
+              </Link>
+            
           ))}
         </ul>
       )}

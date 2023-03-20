@@ -24,10 +24,9 @@ function LoginForm() {
           };
 
         api.post('login', credentials).then(res => {
-            const {token} = res.data;
-
-            console.log(token)
-            login(token);
+            const {token, client_id} = res.data;
+            login(token, client_id);
+            
             router.push('/resume');
         }).catch(error => {
             console.error(error);
