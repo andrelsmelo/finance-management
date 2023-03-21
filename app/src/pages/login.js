@@ -39,6 +39,7 @@ function LoginForm() {
         console.error(error);
       });
   }
+
   function handleKeyDown(event) {
     if (event.keyCode === 13) {
       handleSubmit(event);
@@ -50,7 +51,6 @@ function LoginForm() {
       <span className='form_title'>Login</span>
       <div className='form_input'>
         <FontAwesomeIcon icon={faUser} />
-        <i className='bx bxs-user icon'></i>
         <input
           type='email'
           placeholder='Email'
@@ -60,7 +60,6 @@ function LoginForm() {
       </div>
       <div className='form_input'>
         <FontAwesomeIcon icon={faKey} />
-        <i className='bx bx-key icon'></i>
         <input
           type='password'
           placeholder='Password'
@@ -80,26 +79,106 @@ function LoginForm() {
 }
 
 function RegisterForm() {
+
+  const { login } = useAuth();
+  const router = useRouter();
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    if (password !== repeatPassword) {
+      console.error('Senha não confere');
+      return;
+    }
+
+    let credentials = {
+      username: username,
+      email: email,
+      password: password,
+    };
+
+    console.log(credentials);
+
+    try {
+      api.post('user', credentials).then((res) => {
+        credentials.user_id = res.data.insertId;
+        credentials.name = username;
+        credentials.wage_date = 0;
+        credentials.wage_value = 0;
+        credentials.gender = 'other';
+
+
+        // Now the credentials object has been updated with the new property
+        console.log(credentials);
+
+        // You can make another API call to create a new client with the updated credentials object
+        api.post('client', credentials).then((res) => {
+          console.log('Cliente criado com sucesso');
+
+          api
+            .post('login', credentials)
+            .then((res) => {
+              const { token, client_id } = res.data;
+              login(token, client_id);
+
+              router.push('/resume');
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        });
+      });
+    } catch (error) {
+      console.error(error);
+    }
+
+    console.log(credentials);
+  }
+
   return (
     <form id='register_form'>
       <span className='form_title'>Register</span>
       <div className='form_input'>
         <FontAwesomeIcon icon={faUser} />
-        <input type='text' placeholder='Username' />
+        <input
+          type='text'
+          placeholder='Username'
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+        />
       </div>
       <div className='form_input'>
         <FontAwesomeIcon icon={faEnvelope} />
-        <input type='email' placeholder='E-mail' />
+        <input
+          type='email'
+          placeholder='Email'
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
       </div>
       <div className='form_input'>
         <FontAwesomeIcon icon={faKey} />
-        <input type='password' placeholder='Password' />
+        <input
+          type='password'
+          placeholder='Password'
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
       </div>
       <div className='form_input'>
         <FontAwesomeIcon icon={faKey} />
-        <input type='password' placeholder='Repeat password' />
+        <input
+          type='password'
+          placeholder='Repeat password'
+          value={repeatPassword}
+          onChange={(event) => setRepeatPassword(event.target.value)}
+        />
       </div>
-      <button className='form_button' type='button'>
+      <button className='form_button' type='button' onClick={handleSubmit}>
         <FontAwesomeIcon icon={faChevronRight} />
       </button>{' '}
       <span className='terms'>

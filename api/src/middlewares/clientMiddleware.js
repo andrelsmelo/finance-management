@@ -5,7 +5,10 @@ const clientSchema = Joi.object({
   gender: Joi.string().valid('male', 'female', 'other').required(),
   user_id: Joi.number().required(),
   wage_date: Joi.number().required(),
-  wage_value: Joi.number().required()
+  wage_value: Joi.number().required(),
+  username: Joi.string(),
+  email: Joi.string(),
+  password: Joi.string(),
 });
 
 const validateBody = (req, res, next) => {

@@ -21,18 +21,18 @@ const findByEmail = async (email) => {
   
 
 const store = async (user) => {
-    const { login, password, email } = user;
+    const { username, password, email } = user;
     const hashedPassword = await bcrypt.hash(password, 10);
-    const query = 'INSERT INTO users (login, password, email) VALUES (?, ?, ?)';
-    const [createdUser] = await connection.execute(query, [login, hashedPassword, email]);
+    const query = 'INSERT INTO users (username, password, email) VALUES (?, ?, ?)';
+    const [createdUser] = await connection.execute(query, [username, hashedPassword, email]);
     return { insertId: createdUser.insertId };
 };
 
 const update = async (id, user) => {
-    const { login, password, email } = user;
+    const { username, password, email } = user;
     const hashedPassword = await bcrypt.hash(password, 10);
-    const query = 'UPDATE users SET login = ?, password = ?, email = ? WHERE id = ?';
-    const [updatedUser] = await connection.execute(query, [login, hashedPassword, email, id]);
+    const query = 'UPDATE users SET username = ?, password = ?, email = ? WHERE id = ?';
+    const [updatedUser] = await connection.execute(query, [username, hashedPassword, email, id]);
     return updatedUser;
 };
 

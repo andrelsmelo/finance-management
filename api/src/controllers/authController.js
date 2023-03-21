@@ -9,15 +9,17 @@ const { findClientByUserid } = require('../services/loginService');
     try {
       const { email, password } = req.body;
 
+      
+
       const secret = process.env.SECRET;
 
       const [user] = await userModel.findByEmail(email);
-
+      
 
       if (!user) {
         return res.status(401).json({ message: 'Usuario nao encontrado.' });
       }
-
+      
       const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
       if (!isPasswordCorrect) {
@@ -25,9 +27,9 @@ const { findClientByUserid } = require('../services/loginService');
       }
 
       const token = jwt.sign({ userId: user.id }, secret);
-
+      
       const [client] = await findClientByUserid(user.id);
-
+      console.log(client)
       return res.status(200).json({ token: token, client_id: client.id });
     } catch (err) {
       return res.status(500).json({ message: err.message });
