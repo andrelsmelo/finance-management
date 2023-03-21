@@ -15,4 +15,21 @@
     display: flex;
     flex-direction: column;
 }
- 
+
+.header-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-buttons button {
+    margin: 0 0.5rem;
+}
+.theme-btn {
+    border: none;
+    background-color: transparent;
+    transform: scale(1.3)
+}
+.theme-btn:hover {
+    transform: scale(1.6)
+}

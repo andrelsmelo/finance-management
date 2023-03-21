@@ -120,5 +120,5 @@
 }
 
 .custom-shape-divider-top-1679414708 .shape-fill {
-   fill: #FBA239;
+   fill: var(--secondary)
 }

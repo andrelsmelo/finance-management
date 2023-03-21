@@ -63,15 +63,28 @@ a {
 .color-primary {
     color: var(--primary);
 }
+.color-primary-dark {
+  color: var(--primary-dark);
+}
+.color-primary-light {
+  color: var(--primary-light);
+}
 
 .color-secondary {
     color: var(--secondary);
+}
+.color-secondary-dark {
+  color: var(--secondary-dark);
+}
+.color-secondary-light {
+  color: var(--secondary-light);
 }
 
 .color-black {
     color: var(--black);
 }
- 
+
+
 #forms_container {
   background-color: white;
   width: 50rem; /* 800px / 16 */
@@ -222,6 +235,11 @@ a {
    background: var(--primary);
    background: linear-gradient(0deg, var(--primary) 0%, var(--secondary-light) 100%);
  }
+
+ form button:hover {
+  transform: scale(1.2)
+}
+
  
 
  .login-container {
