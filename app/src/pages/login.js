@@ -79,7 +79,6 @@ function LoginForm() {
 }
 
 function RegisterForm() {
-
   const { login } = useAuth();
   const router = useRouter();
   const [username, setUsername] = useState('');
@@ -91,38 +90,40 @@ function RegisterForm() {
     event.preventDefault();
 
     if (password !== repeatPassword) {
-      console.error('Senha não confere');
+      console.error('Passwords do not match');
       return;
     }
 
-    let credentials = {
-      username: username,
-      email: email,
-      password: password,
+    const credentials = {
+      username,
+      email,
+      password,
     };
 
     try {
-      api.post('user', credentials).then((res) => {
-        credentials.user_id = res.data.insertId;
-        credentials.name = username;
-        credentials.wage_date = 0;
-        credentials.wage_value = 0;
-        credentials.gender = 'other';
+      const userRes = await api.post('user', credentials);
+      const user_id = userRes.data.insertId;
 
-        api.post('client', credentials).then((res) => {
-          api
-            .post('login', credentials)
-            .then((res) => {
-              const { token, client_id } = res.data;
-              login(token, client_id);
+      const clientCredentials = {
+        ...credentials,
+        user_id,
+        name: username,
+        wage_date: 0,
+        wage_value: 0,
+        gender: 'other',
+      };
+      const clientRes = await api.post('client', clientCredentials);
 
-              router.push('/resume');
-            })
-            .catch((error) => {
-              console.error(error);
-            });
-        });
-      });
+      const loginCredentials = {
+        email,
+        password,
+      };
+      const loginRes = await api.post('login', loginCredentials);
+
+      const { token, client_id } = loginRes.data;
+
+      login(token, client_id);
+      router.push('/resume');
     } catch (error) {
       console.error(error);
     }
