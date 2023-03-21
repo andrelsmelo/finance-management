@@ -101,8 +101,6 @@ function RegisterForm() {
       password: password,
     };
 
-    console.log(credentials);
-
     try {
       api.post('user', credentials).then((res) => {
         credentials.user_id = res.data.insertId;
@@ -111,14 +109,7 @@ function RegisterForm() {
         credentials.wage_value = 0;
         credentials.gender = 'other';
 
-
-        // Now the credentials object has been updated with the new property
-        console.log(credentials);
-
-        // You can make another API call to create a new client with the updated credentials object
         api.post('client', credentials).then((res) => {
-          console.log('Cliente criado com sucesso');
-
           api
             .post('login', credentials)
             .then((res) => {
@@ -135,8 +126,6 @@ function RegisterForm() {
     } catch (error) {
       console.error(error);
     }
-
-    console.log(credentials);
   }
 
   return (
