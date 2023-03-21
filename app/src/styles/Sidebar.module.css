@@ -1,0 +1,104 @@
+.sidebar button{
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.sidebar{
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 75px;
+    height: 100%;
+    background: var(--primary-dark);
+    transition: all 0.4s;
+    z-index: 999;
+}
+
+.open .sidebar{
+    width: 240px;
+}
+
+.open {
+    width: 240px;
+}
+
+.sidebar-inner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+}
+
+.sidebar-header{
+    display: flex;
+    align-items: center;
+    height: 68px;
+    padding: 0 1.25rem 0 0;
+    background: rgba(0, 0, 0, 0.1);
+    border-left: 3px solid transparent;
+    transition: all 0.4s;
+}
+
+.sidebar-header:hover{
+    border-left: 3px solid #bdbdbd;
+}
+
+.sidebar-burger{
+    width: 70px;
+    height: 70px;
+    display: grid;
+    place-items: center;
+}
+
+.sidebar-logo{
+    height: 30px;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.open .sidebar-logo{
+    opacity: 1;
+    transition: all 0.4s;
+}
+
+.sidebar-menu{
+    display: grid;
+}
+
+.sidebar-menu > a > button{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    height: 55px;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 1;
+    padding: 0 22px;
+    border-left: 3px solid transparent;
+    transition: all 0.4s;
+}
+
+.sidebar-menu > a > button:hover{
+    border-left: 3px solid #f9f9f9;
+}
+
+.sidebar-menu > a > button.has-border{
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    margin-bottom: 1rem;
+}
+
+.sidebar-menu > a > button > span{
+    color: #f9f9f9;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.open .sidebar-menu > a > button > span{
+    opacity: 1;
+    transition: all 0.4s;
+}

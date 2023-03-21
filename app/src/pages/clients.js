@@ -1,6 +1,5 @@
 
 import Head from "next/head";
-import Menu from "@/components/Menu";
 import api from '../service/api';
 import React, { useState, useEffect } from 'react';
 import ClientCard from "@/components/ClientCard";

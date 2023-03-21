@@ -1,7 +1,6 @@
 import Button from "../components/Button";
 import Link from 'next/link';
 import styles from '../styles/Header.module.css';
-import Menu from "./Menu";
 import { useAuth } from "@/hooks/AuthContext";
 
 export default function Header() {
@@ -18,7 +17,6 @@ export default function Header() {
                     <h1 className={'color-primary'}>MONEY <span className='color-secondary'>MATTERS</span></h1>
                 </Link>
             </div>
-            <Menu />
             <div>
                 <Button text="About Us" variant="primaryTransparent" />
                 {isLoggedIn ?

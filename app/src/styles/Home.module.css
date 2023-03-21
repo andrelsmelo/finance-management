@@ -5,6 +5,7 @@
 
 .titles-container {
    width: 50%;
+   z-index: 3;
 }
 
 .rightside {
@@ -14,9 +15,9 @@
 .main-title {
    background-color: white;
    margin: 2rem;
-   padding: 2rem 9rem;
+   padding: 2rem 2rem;
    border-radius: 20px;
-   font-size: 1.8rem;
+   font-size: 1.6rem;
    justify-content: center;
    align-items: center;
    text-align: center;
@@ -31,8 +32,8 @@
 
 .image {
    background-color: white;
-   width: 20rem;
-   height: 20rem;
+   width: 18rem;
+   height: 18rem;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -85,7 +86,7 @@
    position: fixed;
    bottom: 0;
    right: 0;
-   transform: translate(10%, 20%);
+   transform: translate(10%, 25%);
  }
  
  .bola img {
@@ -93,9 +94,31 @@
    bottom: 30%;
    right: 20%;;
    transform: scale(1.5);
+   z-index: 4;
  }
 
  .already-register {
    font-style: oblique;
    color: #332318;
  }
+
+ .custom-shape-divider-top-1679414708 {
+   position: absolute;
+   left: 0;
+   width: 100%;
+   overflow: hidden;
+   line-height: 0;
+   transform: rotate(180deg);
+   z-index: 1;
+}
+
+.custom-shape-divider-top-1679414708 svg {
+   position: relative;
+   display: block;
+   width: calc(100% + 1.3px);
+   height: 194px;
+}
+
+.custom-shape-divider-top-1679414708 .shape-fill {
+   fill: #FBA239;
+}
