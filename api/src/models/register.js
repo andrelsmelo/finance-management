@@ -13,16 +13,33 @@ const findOrFail = async (id) => {
 };
 
 const store = async (register) => {
-  const { client_id, register_date, value, category_id, revenue_type_id } = register;
-  const query = 'INSERT INTO registers (client_id, register_date, value, category_id, revenue_type_id) VALUES (?, ?, ?, ?, ?)';
-  const [createdRegister] = await connection.execute(query, [client_id, register_date, value, category_id, revenue_type_id]);
+  const { client_id, register_date, value, category_id, revenue_type_id } =
+    register;
+  const query =
+    'INSERT INTO registers (client_id, register_date, value, category_id, revenue_type_id) VALUES (?, ?, ?, ?, ?)';
+  const [createdRegister] = await connection.execute(query, [
+    client_id,
+    register_date,
+    value,
+    category_id,
+    revenue_type_id,
+  ]);
   return { insertId: createdRegister.insertId };
 };
 
 const update = async (id, register) => {
-  const { client_id, register_date, value, category_id, revenue_type_id } = register;
-  const query = 'UPDATE registers SET client_id = ?, register_date = ?, value = ?, category_id = ?, revenue_type_id = ? WHERE id = ?';
-  const [updatedRegister] = await connection.execute(query, [client_id, register_date, value, category_id, revenue_type_id, id]);
+  const { client_id, register_date, value, category_id, revenue_type_id } =
+    register;
+  const query =
+    'UPDATE registers SET client_id = ?, register_date = ?, value = ?, category_id = ?, revenue_type_id = ? WHERE id = ?';
+  const [updatedRegister] = await connection.execute(query, [
+    client_id,
+    register_date,
+    value,
+    category_id,
+    revenue_type_id,
+    id,
+  ]);
   return updatedRegister;
 };
 
@@ -44,25 +61,51 @@ const findClientRegisters = async (client_id) => {
     FROM finance.registers AS r
     JOIN finance.categories AS c
       ON r.category_id = c.id
-    WHERE r.client_id = 1
+    WHERE r.client_id = ?
       AND r.deletedAt IS NULL`;
+      
   const [clientRegisters] = await connection.execute(query, [client_id]);
   return clientRegisters;
 };
 
+const findClientRegisterGraphs = async (client_id) => {
+
+    const query = `
+    SELECT
+      r.register_date,
+      sum(r.value) as total_value,
+      c.revenue_type
+    FROM finance.registers AS r
+    JOIN finance.categories AS c
+      ON r.category_id = c.id
+    WHERE r.client_id = ?
+      AND r.deletedAt IS NULL
+      GROUP BY r.register_date, c.revenue_type
+      ORDER BY r.register_date asc
+      `;
+
+  const [clientRegistersGraphs] = await connection.execute(query, [client_id]);
+  return clientRegistersGraphs;
+};
 
 const findClientRegistersFiltered = async (client_id, start_date, end_date) => {
   const start_date_string = new Date(start_date);
-  const end_date_string = new Date(new Date(end_date).getTime() + (24 * 60 * 60 * 1000));
+  const end_date_string = new Date(
+    new Date(end_date).getTime() + 24 * 60 * 60 * 1000
+  );
 
   const query = `
     SELECT * FROM registers WHERE client_id = ? AND register_date BETWEEN ? AND ? AND deletedAt IS NULL
   `;
 
-  const [clientRegistersFiltered] = await connection.execute(query, [client_id, start_date_string, end_date_string]);
+  const [clientRegistersFiltered] = await connection.execute(query, [
+    client_id,
+    start_date_string,
+    end_date_string,
+  ]);
 
   return clientRegistersFiltered;
-}
+};
 
 module.exports = {
   findAll,
@@ -71,5 +114,6 @@ module.exports = {
   update,
   remove,
   findClientRegisters,
-  findClientRegistersFiltered
+  findClientRegistersFiltered,
+  findClientRegisterGraphs
 };

@@ -10,8 +10,6 @@ const userMiddleware = require('./middlewares/userMiddleware');
 const clientMiddleware = require('./middlewares/clientMiddleware');
 const registerMiddleware = require('./middlewares/registerMiddleware');
 const categoryMiddleware = require('./middlewares/categoryMiddleware');
-const authMiddleware = require('./middlewares/authMiddleware');
-
 
 const router = express.Router();
 
@@ -50,6 +48,7 @@ router.put('/register/:id', registerMiddleware.validateBody, registerController.
 router.delete('/register/:id', registerController.remove);
 
 router.get('/register/client/:client_id', registerController.findClientRegisters)
+router.get('/register/client/graphs/:client_id', registerController.findClientRegisterGraphs)
 router.get('/register/client/:client_id/:start_date/:end_date', registerController.findClientRegistersFiltered);
 
 router.post('/login', authController.login);

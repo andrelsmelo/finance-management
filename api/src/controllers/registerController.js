@@ -53,6 +53,24 @@ const findClientRegisters = async (req, res) => {
   }
 };
 
+const findClientRegisterGraphs = async (req, res) => {
+  try {
+    const { client_id } = req.params;
+    const clientRegisters = await registerModel.findClientRegisterGraphs(client_id);
+
+    if (clientRegisters.length === 0) {
+      saveLog('warn', 'register/findClientRegisters', req.params, 'Client registers graphs not found');
+      return res.status(404).json('Client registers not found');
+    }
+    saveLog('info', 'register/findClientRegisters', req.params, 'Client registers graphs found successfully');
+    return res.status(200).json(clientRegisters);
+  } catch (error) {
+    console.error(error);
+    saveLog('error', 'register/findClientRegisters', req.params, error.message);
+    return res.status(500).json({ message: 'Error fetching client registers graphs', error });
+  }
+}
+
 const findClientRegistersFiltered = async (req, res) => {
   try {
     const { client_id, start_date, end_date } = req.params;
@@ -128,4 +146,5 @@ module.exports = {
   remove,
   findClientRegisters,
   findClientRegistersFiltered,
+  findClientRegisterGraphs
 };

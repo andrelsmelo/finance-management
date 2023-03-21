@@ -73,13 +73,13 @@
 }
 
 .revenue-income {
-    width: 50%;
+    width: 15rem;
     height: 15rem;
-    margin: 1rem; 
+    margin: 1rem;
 }
 
 .revenue-outcome {
-    width: 50%;
+    width: 15rem;
     height: 15rem;
     margin: 1rem;
 }
@@ -95,7 +95,6 @@
 .graphic {
     width: 80%;
     height: 80%;
-    background-color: var(--primary-light);
     margin-bottom: 1rem;
     border-radius: 25px;
 }
