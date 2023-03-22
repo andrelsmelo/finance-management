@@ -24,7 +24,7 @@ export default function Resume() {
     'Ações',
   ];
 
-  const id = cookies.get('client_id');
+  const id = cookies.get('user_id');
 
   const options = {
     scales: {

@@ -1,4 +1,4 @@
-const logModel = require('../models/logError');
+const logModel = require('../models/log');
 
 const saveLog = async (type, method, params, err) => {
     

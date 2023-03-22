@@ -13,7 +13,7 @@ export default function Register() {
     const cookies = new Cookies();
     const [registers, setRegisters] = useState('');
     const headers = ['id', 'Data de Registro', 'Valor', 'Categoria', 'Tipo', 'Ações'];
-    const id = cookies.get('client_id');
+    const id = cookies.get('user_id');
 
     useEffect(() => {
         api.get(`register/client/${id}`).then(res => {

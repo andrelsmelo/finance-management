@@ -1,9 +1,9 @@
-const registerModel = require('../models/register');
+const revenueModel = require('../models/revenue');
 const { saveLog } = require('../services/logService');
 
 const findAll = async (req, res) => {
   try {
-    const registers = await registerModel.findAll();
+    const registers = await revenueModel.findAll();
 
     saveLog('info', 'register/findAll', {}, 'Registers fetched successfully');
     return res.status(200).json(registers);
@@ -19,7 +19,7 @@ const findOrFail = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const register = await registerModel.findOrFail(id);
+    const register = await revenueModel.findOrFail(id);
 
     if (register.length === 0) {
       saveLog('warn', 'register/findOrFail', req.params, 'Register not found');
@@ -37,8 +37,8 @@ const findOrFail = async (req, res) => {
 
 const findClientRegisters = async (req, res) => {
   try {
-    const { client_id } = req.params;
-    const clientRegisters = await registerModel.findClientRegisters(client_id);
+    const { user_id } = req.params;
+    const clientRegisters = await revenueModel.findClientRegisters(user_id);
 
     if (clientRegisters.length === 0) {
       saveLog('warn', 'register/findClientRegisters', req.params, 'Client registers not found');
@@ -55,8 +55,8 @@ const findClientRegisters = async (req, res) => {
 
 const findClientRegisterGraphs = async (req, res) => {
   try {
-    const { client_id } = req.params;
-    const clientRegisters = await registerModel.findClientRegisterGraphs(client_id);
+    const { user_id } = req.params;
+    const clientRegisters = await revenueModel.findClientRegisterGraphs(user_id);
 
     if (clientRegisters.length === 0) {
       saveLog('warn', 'register/findClientRegisters', req.params, 'Client registers graphs not found');
@@ -73,9 +73,9 @@ const findClientRegisterGraphs = async (req, res) => {
 
 const findClientRegistersFiltered = async (req, res) => {
   try {
-    const { client_id, start_date, end_date } = req.params;
+    const { user_id, start_date, end_date } = req.params;
 
-    const clientRegistersFiltered = await registerModel.findClientRegistersFiltered( client_id, start_date, end_date);
+    const clientRegistersFiltered = await revenueModel.findClientRegistersFiltered( user_id, start_date, end_date);
 
     if (clientRegistersFiltered.length === 0) {
       saveLog('warn', 'register/findClientRegisters', req.params, 'Filtered client registers not found');
@@ -93,7 +93,7 @@ const findClientRegistersFiltered = async (req, res) => {
 
 const store = async (req, res) => {
   try {
-    const createdRegister = await registerModel.store(req.body);
+    const createdRegister = await revenueModel.store(req.body);
 
     saveLog('info', 'register/store', req.body, 'Register created successfully');
     return res.status(201).json(createdRegister);
@@ -110,7 +110,7 @@ const update = async (req, res) => {
     const { id } = req.params;
     const updatedRegister = req.body;
 
-    await registerModel.update(id, updatedRegister);
+    await revenueModel.update(id, updatedRegister);
 
     saveLog('info', 'register/update', req.params, 'Register updated successfully');
     return res.status(204).json();
@@ -126,7 +126,7 @@ const remove = async (req, res) => {
   try {
     const { id } = req.params;
 
-    await registerModel.remove(id);
+    await revenueModel.remove(id);
 
     saveLog('info', 'category/remove', req.params, 'Register removed successfully');
     return res.status(204).json();

@@ -25,18 +25,18 @@ export function AuthProvider({ children }) {
     setIsLoggedIn(token);
   }, []);
 
-  const login = (token, client_id) => {
+  const login = (token, user_id) => {
     setIsLoggedIn(true);
     cookies.set('token', token, {path: '/'})
-    cookies.set('client_id', client_id, {path: '/'})
+    cookies.set('user_id', user_id, {path: '/'})
     localStorage.setItem('token', token);
-    localStorage.setItem('client_id', client_id);
+    localStorage.setItem('user_id', user_id);
   };
 
   const logout = (redirect = true) => {
     setIsLoggedIn(false);
     cookies.remove('token');
-    cookies.remove('client_id');
+    cookies.remove('user_id');
     localStorage.clear();
 
     if (redirect) {

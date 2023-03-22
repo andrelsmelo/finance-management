@@ -30,7 +30,7 @@ function LoginForm() {
     api
       .post('login', credentials)
       .then((res) => {
-        const { token, client_id } = res.data;
+        const { token, user_id } = res.data;
         login(token, client_id);
 
         router.push('/resume');

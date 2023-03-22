@@ -1,11 +1,10 @@
 const Joi = require('joi');
 
 const registerSchema = Joi.object({
-  client_id: Joi.number().required(),
-  register_date: Joi.date().required(),
-  value: Joi.number().required(),
+  user_id: Joi.number().required(),
+  date: Joi.date().required(),
+  amount: Joi.number().required(),
   category_id: Joi.number().required(),
-  revenue_type_id: Joi.number().required(),
 });
 
 const validateBody = (req, res, next) => {

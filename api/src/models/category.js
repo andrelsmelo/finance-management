@@ -1,13 +1,13 @@
 const connection = require('../config/database');
 
 const findAll = async () => {
-  const query = 'SELECT * FROM categories WHERE deletedAt IS NULL';
+  const query = 'SELECT * FROM categories WHERE deleted_at IS NULL';
   const [categories] = await connection.execute(query);
   return categories;
 };
 
 const findOrFail = async (id) => {
-  const query = 'SELECT * FROM categories WHERE id = ? AND deletedAt IS NULL';
+  const query = 'SELECT * FROM categories WHERE id = ? AND deleted_at IS NULL';
   const [category] = await connection.execute(query, [id]);
   return category;
 };
@@ -28,7 +28,7 @@ const update = async (id, category) => {
 
 const remove = async (id) => {
   const dateUTC = new Date(Date.now());
-  const query = 'UPDATE categories SET deletedAt = ? WHERE id = ?';
+  const query = 'UPDATE categories SET deleted_at = ? WHERE id = ?';
   const [deletedCategory] = await connection.execute(query, [dateUTC, id]);
   return deletedCategory;
 };

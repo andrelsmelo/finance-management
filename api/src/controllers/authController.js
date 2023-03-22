@@ -28,8 +28,7 @@ const { findClientByUserid } = require('../services/loginService');
 
       const token = jwt.sign({ userId: user.id }, secret);
       
-      const [client] = await findClientByUserid(user.id);
-      return res.status(200).json({ token: token, client_id: client.id });
+      return res.status(200).json({ token: token, user_id: user.id });
     } catch (err) {
       return res.status(500).json({ message: err.message });
     }

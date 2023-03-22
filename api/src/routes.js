@@ -1,14 +1,14 @@
 const express = require('express');
 
 const userController = require('./controllers/userController');
-const clientController = require('./controllers/clientController');
-const registerController = require('./controllers/registerController');
+const expenseController = require('./controllers/expenseController');
+const revenueController = require('./controllers/revenueController');
 const categoryController = require('./controllers/categoryController');
 const authController = require ('./controllers/authController');
 
 const userMiddleware = require('./middlewares/userMiddleware');
-const clientMiddleware = require('./middlewares/clientMiddleware');
-const registerMiddleware = require('./middlewares/registerMiddleware');
+const expenseMiddleware = require('./middlewares/expenseMiddleware');
+const revenueMiddleware = require('./middlewares/revenueMiddleware');
 const categoryMiddleware = require('./middlewares/categoryMiddleware');
 
 const router = express.Router();
@@ -22,13 +22,6 @@ router.get('/is-alive', (req, res) => {
     res.status(200).json({ message: 'Backend is alive' });
 });
 
-
-router.get('/clients', clientController.findAll);
-router.get('/client/:id', clientController.findOrFail);
-router.post('/client', clientMiddleware.validateBody, clientController.store);
-router.put('/client/:id', clientMiddleware.validateBody, clientController.update);
-router.delete('/client/:id', clientController.remove);
-
 router.get('/users', userController.findAll);
 router.get('/user/:id', userController.findOrFail);
 router.post('/user', userMiddleware.validateBody, userController.store);
@@ -41,27 +34,26 @@ router.post('/category', categoryMiddleware.validateBody, categoryController.sto
 router.put('/category/:id', categoryMiddleware.validateBody, categoryController.update);
 router.delete('/category/:id', categoryController.remove)
 
-router.get('/registers', registerController.findAll);
-router.get('/register/:id', registerController.findOrFail);
-router.post('/register', registerMiddleware.validateBody, registerController.store);
-router.put('/register/:id', registerMiddleware.validateBody, registerController.update);
-router.delete('/register/:id', registerController.remove);
+router.get('/expenses', expenseController.findAll);
+router.get('/expense/:id', expenseController.findOrFail);
+router.post('/expense', expenseMiddleware.validateBody, expenseController.store);
+router.put('/expense/:id', expenseMiddleware.validateBody, expenseController.update);
+router.delete('/expense/:id', expenseController.remove);
 
-router.get('/register/client/:client_id', registerController.findClientRegisters)
-router.get('/register/client/graphs/:client_id', registerController.findClientRegisterGraphs)
-router.get('/register/client/:client_id/:start_date/:end_date', registerController.findClientRegistersFiltered);
+router.get('/expense/user/:user_id', expenseController.findClientRegisters)
+router.get('/expense/user/graphs/:user_id', expenseController.findClientRegisterGraphs)
+router.get('/expense/user/:user_id/:start_date/:end_date', expenseController.findClientRegistersFiltered);
+
+router.get('/revenues', revenueController.findAll);
+router.get('/revenue/:id', revenueController.findOrFail);
+router.post('/revenue', revenueMiddleware.validateBody, revenueController.store);
+router.put('/revenue/:id', revenueMiddleware.validateBody, revenueController.update);
+router.delete('/revenue/:id', revenueController.remove);
+
+router.get('/revenue/user/:user_id', revenueController.findClientRegisters)
+router.get('/revenue/user/graphs/:user_id', revenueController.findClientRegisterGraphs)
+router.get('/revenue/user/:user_id/:start_date/:end_date', revenueController.findClientRegistersFiltered);
 
 router.post('/login', authController.login);
-
-
-router.get('/very-secret-stuff', (req, res) => {
-    res.redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
-});
-router.get('/the-big-secret', (req, res) => {
-    res.redirect('https://www.youtube.com/watch?v=Rvw6gMfs0yk&ab_channel=TheRanger');
-});
-router.get('/passwords', (req, res) => {
-    res.redirect('https://www.youtube.com/watch?v=h7T9WipuASA');
-});
 
 module.exports = router;
