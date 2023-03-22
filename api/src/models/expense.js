@@ -66,26 +66,6 @@ const findClientRegisters = async (user_id) => {
   return clientRegisters;
 };
 
-const findClientRegisterGraphs = async (user_id) => {
-
-    const query = `
-    SELECT
-      r.date,
-      sum(r.amount) as total_amount,
-      c.revenue_type
-    FROM finance.expenses AS r
-    JOIN finance.categories AS c
-      ON r.category_id = c.id
-    WHERE r.user_id = ?
-      AND r.deleted_at IS NULL
-      GROUP BY r.date, c.revenue_type
-      ORDER BY r.date asc
-      `;
-
-  const [clientRegistersGraphs] = await connection.execute(query, [user_id]);
-  return clientRegistersGraphs;
-};
-
 const findClientRegistersFiltered = async (user_id, start_date, end_date) => {
   const start_date_string = new Date(start_date);
   const end_date_string = new Date(
@@ -113,5 +93,4 @@ module.exports = {
   remove,
   findClientRegisters,
   findClientRegistersFiltered,
-  findClientRegisterGraphs
 };

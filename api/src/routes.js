@@ -35,7 +35,6 @@ router.use(middlewareJwt.authenticate);
     router.put('/expense/:id', expenseMiddleware.validateBody, expenseController.update);
     router.delete('/expense/:id', expenseController.remove);
     router.get('/expense/user/:user_id', expenseController.findClientRegisters)
-    router.get('/expense/user/graphs/:user_id', expenseController.findClientRegisterGraphs)
     router.get('/expense/user/:user_id/:start_date/:end_date', expenseController.findClientRegistersFiltered);
 
     router.get('/revenues', revenueController.findAll);
@@ -44,7 +43,6 @@ router.use(middlewareJwt.authenticate);
     router.put('/revenue/:id', revenueMiddleware.validateBody, revenueController.update);
     router.delete('/revenue/:id', revenueController.remove);
     router.get('/revenue/user/:user_id', revenueController.findClientRegisters)
-    router.get('/revenue/user/graphs/:user_id', revenueController.findClientRegisterGraphs)
     router.get('/revenue/user/:user_id/:start_date/:end_date', revenueController.findClientRegistersFiltered);
 
 router.use(authorizeMiddleware.authorize('admin'));
