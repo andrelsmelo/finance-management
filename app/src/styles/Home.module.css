@@ -122,3 +122,8 @@
 .custom-shape-divider-top-1679414708 .shape-fill {
    fill: var(--secondary)
 }
+
+.blob-line {
+   stroke: var(--secondary);
+   transform: scale(1.4);
+}

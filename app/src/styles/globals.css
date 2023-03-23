@@ -7,7 +7,6 @@ html, body {
     height: 100%;
     font-family: 'Alegreya Sans', sans-serif;
     background-color: var(--primary);
-    padding-bottom: 100px; 
 }
 
 main {
