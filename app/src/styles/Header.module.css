@@ -16,6 +16,10 @@
     flex-direction: column;
 }
 
+.header-title:hover {
+    transform: scale(1.1);
+}
+
 .header-buttons {
     display: flex;
     justify-content: space-between;
