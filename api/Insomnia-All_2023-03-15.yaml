@@ -1,0 +1,653 @@
+_type: export
+__export_format: 4
+__export_date: 2023-03-15T23:46:56.215Z
+__export_source: insomnia.desktop.app:v2022.7.5
+resources:
+  - _id: req_bd9c2bd212044d04983ed8c566585195
+    parentId: fld_f6ea1bd04f7446e7a9dfeadbbb646097
+    modified: 1678894116867
+    created: 1678811926072
+    url: localhost:7575/api/is-alive
+    name: is alive?
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678811926072
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_f6ea1bd04f7446e7a9dfeadbbb646097
+    parentId: wrk_7c7bcca827674128b27590b7b188be98
+    modified: 1678762032013
+    created: 1678762032013
+    name: Finannce
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678762032013
+    _type: request_group
+  - _id: wrk_7c7bcca827674128b27590b7b188be98
+    parentId: null
+    modified: 1677077508180
+    created: 1677077301901
+    name: New Document
+    description: ""
+    scope: design
+    _type: workspace
+  - _id: req_468e364e7b01469bbb57c69119797be7
+    parentId: fld_23a5e05952a14b12863df57e387ee587
+    modified: 1678812021917
+    created: 1678811636759
+    url: localhost:7575/api/categories/
+    name: Retorna todas as categorias
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678811627608
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_23a5e05952a14b12863df57e387ee587
+    parentId: fld_f6ea1bd04f7446e7a9dfeadbbb646097
+    modified: 1678811277898
+    created: 1678811277898
+    name: Category
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678811277898
+    _type: request_group
+  - _id: req_348a9cdaac2f4793bf71bde0ac095be3
+    parentId: fld_23a5e05952a14b12863df57e387ee587
+    modified: 1678812760769
+    created: 1678811651263
+    url: localhost:7575/api/category/6
+    name: Retorna um usuario especifico
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678811627595.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_04bc446fff5b4e96bee3947d85d52299
+    parentId: fld_23a5e05952a14b12863df57e387ee587
+    modified: 1678812769703
+    created: 1678811657129
+    url: localhost:7575/api/category
+    name: Cadastra uma nova categoria
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "name": "Teste"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678811627583
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9e8aa414545b435e8d90d03d08d43eb0
+    parentId: fld_23a5e05952a14b12863df57e387ee587
+    modified: 1678812810612
+    created: 1678811663613
+    url: localhost:7575/api/category/2
+    name: Atualiza uma categoria
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "name": "Renda Fixa"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678811627520.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_10f3141dbc3643e1ad727b24ce3fbbd8
+    parentId: fld_23a5e05952a14b12863df57e387ee587
+    modified: 1678812818773
+    created: 1678811666894
+    url: localhost:7575/api/category/13
+    name: Deleta uma categoria
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678811627470.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b9566243bff8424e87f450fb253bebd6
+    parentId: fld_929405817e6c45218957a2e483685573
+    modified: 1678812648248
+    created: 1678761967398
+    url: localhost:7575/api/user
+    name: Cadastra um novo usuario
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "login": "André",
+          "password": "mypassword123",
+          "email": "teste@email.com"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678761967294.4844
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_929405817e6c45218957a2e483685573
+    parentId: fld_f6ea1bd04f7446e7a9dfeadbbb646097
+    modified: 1678811283876
+    created: 1678811283876
+    name: User
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678811283876
+    _type: request_group
+  - _id: req_f69568230ab74a2c89b930b79ce74aa5
+    parentId: fld_929405817e6c45218957a2e483685573
+    modified: 1678811562796
+    created: 1678762547501
+    url: localhost:7575/api/user/3
+    name: Retorna um usuario especifico
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678761967313.2344
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_c1ef24233f674cd1b9899d11083a7967
+    parentId: fld_929405817e6c45218957a2e483685573
+    modified: 1678812127153
+    created: 1678763226260
+    url: localhost:7575/api/user/6
+    name: Atualiza um usuario
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "login": "Pessoa teste 321",
+          "password": "mypassword123",
+          "email": "teste@email.com"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678761967244.4844
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_12e7de9308b745f08dc43d6d2ab4fb99
+    parentId: fld_929405817e6c45218957a2e483685573
+    modified: 1678812008617
+    created: 1678763285423
+    url: localhost:7575/api/users/
+    name: Retorna todos os usuarios
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678761967331.9844
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e1898349b8e240c491f17dd07727f421
+    parentId: fld_929405817e6c45218957a2e483685573
+    modified: 1678811331796
+    created: 1678763323426
+    url: localhost:7575/api/user/2
+    name: Deleta um usuario
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678761967194.4844
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_7e8aee1416e74c959abab8239df2f856
+    parentId: fld_4ee64329a2c54bc2abcee406b89b3f2f
+    modified: 1678811556563
+    created: 1678811428714
+    url: localhost:7575/api/clients/
+    name: Retorna todos os clientes
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678811530628.4375
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_4ee64329a2c54bc2abcee406b89b3f2f
+    parentId: fld_f6ea1bd04f7446e7a9dfeadbbb646097
+    modified: 1678811506501
+    created: 1678811290363
+    name: Client
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678811285497.75
+    _type: request_group
+  - _id: req_eeb4627ddec4483bb566b9dfac21f697
+    parentId: fld_4ee64329a2c54bc2abcee406b89b3f2f
+    modified: 1678812318225
+    created: 1678811434932
+    url: localhost:7575/api/client/1
+    name: Retorna um cliente especifico
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678811530617.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_89b57f1e73e14c6b8d3a67db602062e3
+    parentId: fld_4ee64329a2c54bc2abcee406b89b3f2f
+    modified: 1678812658025
+    created: 1678811452644
+    url: localhost:7575/api/client
+    name: Cadastra um novo cliente
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "name": "André Lucas Soares de Melo",
+          "gender": "male",
+          "user_id": 2,
+        	"wage_date": 5,
+        	"wage_value": 2600
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678811530605
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_8142d302e5d6410b915097cf96b60899
+    parentId: fld_4ee64329a2c54bc2abcee406b89b3f2f
+    modified: 1678812707738
+    created: 1678811459373
+    url: localhost:7575/api/client/3
+    name: Atualiza um cliente
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "name": "André Lucas Soares de Melo",
+          "gender": "male",
+          "user_id": 2,
+        	"wage_date": 10,
+        	"wage_value": 2600
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678811530580
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_29743c2e56a7464b939289020e67a6c5
+    parentId: fld_4ee64329a2c54bc2abcee406b89b3f2f
+    modified: 1678811565056
+    created: 1678811476181
+    url: localhost:7575/api/client/2
+    name: Deleta um cliente
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678811530530
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_39ff35d397954b4ba8aa13cc22dc9a30
+    parentId: fld_b0480894907a48f9990f5c32660827f0
+    modified: 1678811974853
+    created: 1678811573091
+    url: localhost:7575/api/registers/
+    name: Retorna todos os registros
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678811567255
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_b0480894907a48f9990f5c32660827f0
+    parentId: fld_f6ea1bd04f7446e7a9dfeadbbb646097
+    modified: 1678811307227
+    created: 1678811300726
+    name: Register
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1678811287119.5
+    _type: request_group
+  - _id: req_4efd9da3f9874d438923d60921fa71f4
+    parentId: fld_b0480894907a48f9990f5c32660827f0
+    modified: 1678813503384
+    created: 1678811592821
+    url: localhost:7575/api/register/1
+    name: Retorna um registro especifico
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678811567242.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_994be0366929455c8e1137155ab5746f
+    parentId: fld_b0480894907a48f9990f5c32660827f0
+    modified: 1678819771294
+    created: 1678811602487
+    url: localhost:7575/api/register
+    name: Cadastra um novo registro
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "client_id": 1,
+        	"register_date": "2022-03-14",
+        	"value": 1250,
+        	"category_id": 3
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678811567155
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e93b8399d6564a42a839982ece3ddf80
+    parentId: fld_b0480894907a48f9990f5c32660827f0
+    modified: 1678813594605
+    created: 1678811614280
+    url: localhost:7575/api/register/1
+    name: Atualiza um registro
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |
+        {
+          "client_id": 1,
+        	"register_date": "2022-03-14",
+        	"value": 3000,
+        	"category_id": 3,
+        	"revenue_type_id": 1
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1678811567105
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d81ebf373b6840f4b8fe385bf7aa72ca
+    parentId: fld_b0480894907a48f9990f5c32660827f0
+    modified: 1678813488883
+    created: 1678811622536
+    url: localhost:7575/api/register/3
+    name: Deleta um registro
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678811567055
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_92197b39ffb348a988be4a6edf717867
+    parentId: fld_b0480894907a48f9990f5c32660827f0
+    modified: 1678814261193
+    created: 1678813413054
+    url: localhost:7575/api/register/client/1
+    name: Retorna registros de um cliente especifico
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678811567230
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_57cf3588cea144a6a515e60d8957f02b
+    parentId: fld_b0480894907a48f9990f5c32660827f0
+    modified: 1678819753640
+    created: 1678814229838
+    url: localhost:7575/api/register/client/1/2022-03-01/2023-03-24
+    name: Retorna registros de um cliente especifico filtrando por data
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1678811567192.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_b4e3811ed627fd9fe18da10d4274ebbac8a5f0c4
+    parentId: wrk_7c7bcca827674128b27590b7b188be98
+    modified: 1677077301906
+    created: 1677077301906
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1677077301906
+    _type: environment
+  - _id: jar_b4e3811ed627fd9fe18da10d4274ebbac8a5f0c4
+    parentId: wrk_7c7bcca827674128b27590b7b188be98
+    modified: 1677077301909
+    created: 1677077301909
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_b9201745920a4276a41d0b959284d368
+    parentId: wrk_7c7bcca827674128b27590b7b188be98
+    modified: 1678894106874
+    created: 1677077301902
+    fileName: New Document
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: uts_8949d95b67ac42a69c5c904328084064
+    parentId: wrk_7c7bcca827674128b27590b7b188be98
+    modified: 1677077301915
+    created: 1677077301915
+    name: Example Test Suite
+    _type: unit_test_suite
